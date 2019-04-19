@@ -39,16 +39,24 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         t_nombre = new javax.swing.JTextField();
         t_dni = new javax.swing.JTextField();
+        b_salir2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         t_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_telefonoActionPerformed(evt);
             }
         });
+        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 216, 100, -1));
 
         l_nombre.setText("Nombre:");
+        getContentPane().add(l_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 86, -1, -1));
 
         l_dni.setText("DNI");
+        getContentPane().add(l_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 160, -1, -1));
 
         bt_guardar.setText("Guardar");
         bt_guardar.setName("bt_guardar"); // NOI18N
@@ -57,67 +65,39 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
                 bt_guardarActionPerformed(evt);
             }
         });
+        getContentPane().add(bt_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
 
         l_telefono.setText("Telefono:");
+        getContentPane().add(l_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 218, -1, -1));
 
         jLabel1.setText("Personas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 0, 100, 46));
 
         t_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nombreActionPerformed(evt);
             }
         });
+        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 84, 100, -1));
 
         t_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_dniActionPerformed(evt);
             }
         });
+        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 158, 100, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(l_nombre)
-                    .addComponent(l_dni)
-                    .addComponent(l_telefono))
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(bt_guardar)
-                            .addGap(27, 27, 27))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(129, 129, 129)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(t_telefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                        .addComponent(t_dni, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(t_nombre, javax.swing.GroupLayout.Alignment.LEADING))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(l_nombre))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(l_dni))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(l_telefono))
-                .addGap(3, 3, 3)
-                .addComponent(bt_guardar)
-                .addContainerGap())
-        );
+        b_salir2.setText("Salir");
+        b_salir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_salir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_salir2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b_salir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 370, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,10 +130,17 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_dniActionPerformed
 
+    private void b_salir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_salir2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_b_salir2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_salir2;
     private javax.swing.JButton bt_guardar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel l_dni;
     private javax.swing.JLabel l_nombre;
     private javax.swing.JLabel l_telefono;

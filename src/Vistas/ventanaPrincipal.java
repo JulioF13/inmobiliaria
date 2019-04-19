@@ -20,6 +20,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     public ventanaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Inmobiliaria");
     }
 
     /**
@@ -53,27 +54,23 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
-        setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         b_salir.setBackground(new java.awt.Color(0, 51, 102));
         b_salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         b_salir.setForeground(new java.awt.Color(255, 255, 255));
         b_salir.setText("Salir");
+        b_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Inmobilaria");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 250, 80));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 317, 412));
 
         inmuebles.setText("Inmuebles");
 
@@ -140,6 +137,28 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(240, 240, 240)
+                .addComponent(b_salir))
+            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(280, 280, 280)
+                .addComponent(b_salir))
+            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,7 +171,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         // TODO add your handling code here:
         FormularioCliente fc = new FormularioCliente();
-        fc.setSize(400, 400);
         this.add(fc);
         fc.setVisible(true);
     }//GEN-LAST:event_agregarActionPerformed
@@ -160,7 +178,6 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
         // TODO add your handling code here:
         BorrarCliente bc = new BorrarCliente();
-        bc.setSize(400, 400);
         this.add(bc);
         bc.setVisible(true);
     }//GEN-LAST:event_borrarActionPerformed
