@@ -95,4 +95,34 @@ public class persona_data {
         }
     }
     
+    public List<persona> obtenerPersonas()
+    {
+        List<persona> personas = new ArrayList<persona>();
+        
+        try
+        {
+            String sql = "SELECT * FROM persona;";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            persona persona1;
+            
+            while(rs.next())
+            {
+                persona1 = new persona();
+                persona1.setId(rs.getInt("id"));
+                persona1.setNombre(rs.getString("nombre"));
+                persona1.setCelular(rs.getInt("celular"));
+                
+                personas.add(persona1);
+            }
+            ps.close();
+           
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error al listar persona: " + ex.getMessage());
+        }
+        return personas;
+    }
+    
 }

@@ -19,6 +19,12 @@ public class persona {
     {
         this.id = -1;
     }
+
+    public persona(int dni) {
+        this.dni = dni;
+    }
+    
+    
     
     public persona(String nombre, int dni, int celular)
     {

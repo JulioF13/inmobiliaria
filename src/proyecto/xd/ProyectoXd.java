@@ -7,6 +7,9 @@
 package proyecto.xd;
 
 import java.sql.*;
+import javax.swing.*;
+import java.awt.*;
+import Vistas.ventanaPrincipal;
 
 /*import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +26,7 @@ public class ProyectoXd {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        /*
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
@@ -53,7 +56,7 @@ public class ProyectoXd {
             
             
             *personadata.borrarPersona(b);
-            */
+            
             
             Inmueble i = new Inmueble("Belgrano 876", 3, 56000, 1);
             
@@ -62,6 +65,15 @@ public class ProyectoXd {
         catch(Exception ex)
         {
             System.out.println(ex.getMessage());
-        }
+        }*/
+         
+            
+       /*Ventana v = new Ventana();
+       v.mostrarVentana();
+        */
+       
+       ventanaPrincipal vp = new ventanaPrincipal();
+       
+       vp.setVisible(true);
     }
 }
