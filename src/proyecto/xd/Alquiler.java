@@ -11,6 +11,7 @@ import java.time.LocalDate;
  */
 public class Alquiler {
     private int id = -1;
+    private String Nombre;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private int costo;
@@ -21,7 +22,8 @@ public class Alquiler {
         this.id = -1;
     }
 
-    public Alquiler(LocalDate fechaInicio, LocalDate fechaFin, int costo, long id_inmueble, long id_persona) {
+    public Alquiler(String Nombre,LocalDate fechaInicio, LocalDate fechaFin, int costo, long id_inmueble, long id_persona) {
+        this.Nombre = Nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.costo = costo;
@@ -32,6 +34,11 @@ public class Alquiler {
     public int getId() {
         return id;
     }
+
+    public String getNombre() {
+        return Nombre;
+    }
+    
 
     public LocalDate getFechaInicio() {
         return fechaInicio;
@@ -56,6 +63,11 @@ public class Alquiler {
     public void setId(int id) {
         this.id = id;
     }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+    
 
     public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;

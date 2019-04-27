@@ -21,6 +21,8 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Inmobiliaria");
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
     }
 
     /**
@@ -32,9 +34,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        b_salir = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        fondo = new javax.swing.JLabel();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         inmuebles = new javax.swing.JMenu();
         i_agregar = new javax.swing.JMenuItem();
@@ -55,22 +55,16 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 51));
 
-        b_salir.setBackground(new java.awt.Color(0, 51, 102));
-        b_salir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        b_salir.setForeground(new java.awt.Color(255, 255, 255));
-        b_salir.setText("Salir");
-        b_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        b_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_salirActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inmobilaria");
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 528, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 592, Short.MAX_VALUE)
+        );
 
         inmuebles.setText("Inmuebles");
 
@@ -176,22 +170,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(b_salir))
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(280, 280, 280)
-                .addComponent(b_salir))
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(escritorio)
         );
 
         pack();
@@ -205,70 +188,94 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         FormularioCliente fc = new FormularioCliente();
-        this.add(fc);
+        escritorio.add(fc);
         fc.setVisible(true);
+        escritorio.moveToFront(fc);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
         // TODO add your handling code here:
+       
+        
+        escritorio.removeAll();
+        escritorio.repaint();
         BorrarCliente bc = new BorrarCliente();
-        this.add(bc);
+        escritorio.add(bc);
         bc.setVisible(true);
+        escritorio.moveToFront(bc);
     }//GEN-LAST:event_borrarActionPerformed
-
-    private void b_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_salirActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_b_salirActionPerformed
 
     private void p_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_actualizarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         ActualizarCliente ac = new ActualizarCliente();
-        this.add(ac);
+        escritorio.add(ac);
         ac.setVisible(true);
+        escritorio.moveToFront(ac);
     }//GEN-LAST:event_p_actualizarActionPerformed
 
     private void i_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_agregarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         AñadirInmueble ai = new AñadirInmueble();
-        this.add(ai);
+        escritorio.add(ai);
         ai.setVisible(true);
+        escritorio.moveToFront(ai);
     }//GEN-LAST:event_i_agregarActionPerformed
 
     private void i_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_borrarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         BorrarInmueble ai = new BorrarInmueble();
-        this.add(ai);
+        escritorio.add(ai);
         ai.setVisible(true);
+        escritorio.moveToFront(ai);
     }//GEN-LAST:event_i_borrarActionPerformed
 
     private void i_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_actualizarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         ActualizarInmueble ai = new ActualizarInmueble();
-        this.add(ai);
+        escritorio.add(ai);
         ai.setVisible(true);
+        escritorio.moveToFront(ai);
     }//GEN-LAST:event_i_actualizarActionPerformed
 
     private void a_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_agregarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         AgregarAlquiler aa = new AgregarAlquiler();
-        this.add(aa);
+        escritorio.add(aa);
         aa.setVisible(true);
+        escritorio.moveToFront(aa);
     }//GEN-LAST:event_a_agregarActionPerformed
 
     private void a_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_borrarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         BorrarAlquiler aa = new BorrarAlquiler();
-        this.add(aa);
+        escritorio.add(aa);
         aa.setVisible(true);
+        escritorio.moveToFront(aa);
     }//GEN-LAST:event_a_borrarActionPerformed
 
     private void a_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_actualizarActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         ActualizarAlquiler aa = new ActualizarAlquiler();
-        this.add(aa);
+        escritorio.add(aa);
         aa.setVisible(true);
+        escritorio.moveToFront(aa);
     }//GEN-LAST:event_a_actualizarActionPerformed
 
     private FormularioCliente c;
@@ -317,15 +324,13 @@ public class ventanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem a_listar;
     private javax.swing.JMenuItem agregar;
     private javax.swing.JMenu alquileres;
-    private javax.swing.JButton b_salir;
     private javax.swing.JMenuItem borrar;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem i_actualizar;
     private javax.swing.JMenuItem i_agregar;
     private javax.swing.JMenuItem i_borrar;
     private javax.swing.JMenuItem i_listar;
     private javax.swing.JMenu inmuebles;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem p_actualizar;

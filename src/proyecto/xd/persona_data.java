@@ -85,7 +85,7 @@ public class persona_data {
             ps.setString(1, nombre);
             ps.setInt(2, dni);
             ps.setInt(3, celular);
-            ps.setInt(4, dni);
+            ps.setInt(4, dnia);
             
             ps.executeUpdate();
         }
