@@ -88,7 +88,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
 
         l_ndisponibilidad.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ndisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
-        l_ndisponibilidad.setText("Nueva dosponibilidad:");
+        l_ndisponibilidad.setText("Nueva disponibilidad:");
         getContentPane().add(l_ndisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         t_nambientes.setBackground(new java.awt.Color(0, 51, 102));
@@ -134,6 +134,8 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         l_direcciona.setText("Ingrese dirección:");
         getContentPane().add(l_direcciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
+        jScrollPane1.setWheelScrollingEnabled(false);
+
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(0, 51, 102));
         jTextArea1.setColumns(13);
@@ -141,11 +143,11 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(4);
         jTextArea1.setTabSize(6);
-        jTextArea1.setText(" Ingrese el DNI de la  personaque deseas  actualizar");
+        jTextArea1.setText(" Ingrese la direccion del   \ninmueble que deseas \nactualizar");
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 220, 60));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, 90));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

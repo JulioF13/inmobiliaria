@@ -109,7 +109,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nueva dosponibilidad:"/>
+        <Property name="text" type="java.lang.String" value="Nueva disponibilidad:"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -241,12 +241,15 @@
       </Constraints>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="wheelScrollingEnabled" type="boolean" value="false"/>
+      </Properties>
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="50" width="220" height="60"/>
+          <AbsoluteConstraints x="130" y="60" width="190" height="90"/>
         </Constraint>
       </Constraints>
 
@@ -267,7 +270,7 @@
             </Property>
             <Property name="rows" type="int" value="4"/>
             <Property name="tabSize" type="int" value="6"/>
-            <Property name="text" type="java.lang.String" value=" Ingrese el DNI de la  personaque deseas  actualizar"/>
+            <Property name="text" type="java.lang.String" value=" Ingrese la direccion del   &#xa;inmueble que deseas &#xa;actualizar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
