@@ -61,10 +61,10 @@ public class persona_data {
     {
         try
         {
-            String sql = "DELETE FROM persona WHERE id = ?;";
+            String sql = "DELETE FROM persona WHERE DNI = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
             
-            statement.setInt(1, persona1.getId());
+            statement.setInt(1, persona1.getDni());
             
             statement.executeUpdate();
             
@@ -75,17 +75,17 @@ public class persona_data {
         }        
     }
     
-    public void actualizarPersona(persona persona1, String nombre, int dni, int celular, int id)
+    public void actualizarPersona(persona persona1, String nombre, int dni, int celular, int dnia)
     {
         try
         {
-            String sql = "UPDATE persona SET nombre = ?, dni = ?, celular = ? WHERE id = ?";
+            String sql = "UPDATE persona SET nombre = ?, dni = ?, celular = ? WHERE DNI = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ps.setString(1, nombre);
             ps.setInt(2, dni);
             ps.setInt(3, celular);
-            ps.setInt(4, id);
+            ps.setInt(4, dni);
             
             ps.executeUpdate();
         }

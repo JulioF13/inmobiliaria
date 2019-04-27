@@ -75,12 +75,27 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         inmuebles.setText("Inmuebles");
 
         i_agregar.setText("Agregar");
+        i_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_agregarActionPerformed(evt);
+            }
+        });
         inmuebles.add(i_agregar);
 
         i_borrar.setText("Borrar");
+        i_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_borrarActionPerformed(evt);
+            }
+        });
         inmuebles.add(i_borrar);
 
         i_actualizar.setText("Actualizar");
+        i_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_actualizarActionPerformed(evt);
+            }
+        });
         inmuebles.add(i_actualizar);
 
         i_listar.setText("Lista De Inmuebles");
@@ -112,6 +127,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jMenu2.add(borrar);
 
         p_actualizar.setText("Actualizar");
+        p_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p_actualizarActionPerformed(evt);
+            }
+        });
         jMenu2.add(p_actualizar);
 
         p_listar.setText("Lista de clientes");
@@ -122,12 +142,27 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         alquileres.setText("Alquileres");
 
         a_agregar.setText("Agregar");
+        a_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a_agregarActionPerformed(evt);
+            }
+        });
         alquileres.add(a_agregar);
 
         a_borrar.setText("Borrar");
+        a_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a_borrarActionPerformed(evt);
+            }
+        });
         alquileres.add(a_borrar);
 
         a_actualizar.setText("Actualzar");
+        a_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a_actualizarActionPerformed(evt);
+            }
+        });
         alquileres.add(a_actualizar);
 
         a_listar.setText("Mostrar Alquileres");
@@ -186,6 +221,55 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_b_salirActionPerformed
+
+    private void p_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_actualizarActionPerformed
+        // TODO add your handling code here:
+        ActualizarCliente ac = new ActualizarCliente();
+        this.add(ac);
+        ac.setVisible(true);
+    }//GEN-LAST:event_p_actualizarActionPerformed
+
+    private void i_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_agregarActionPerformed
+        // TODO add your handling code here:
+        AñadirInmueble ai = new AñadirInmueble();
+        this.add(ai);
+        ai.setVisible(true);
+    }//GEN-LAST:event_i_agregarActionPerformed
+
+    private void i_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_borrarActionPerformed
+        // TODO add your handling code here:
+        BorrarInmueble ai = new BorrarInmueble();
+        this.add(ai);
+        ai.setVisible(true);
+    }//GEN-LAST:event_i_borrarActionPerformed
+
+    private void i_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_actualizarActionPerformed
+        // TODO add your handling code here:
+        ActualizarInmueble ai = new ActualizarInmueble();
+        this.add(ai);
+        ai.setVisible(true);
+    }//GEN-LAST:event_i_actualizarActionPerformed
+
+    private void a_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_agregarActionPerformed
+        // TODO add your handling code here:
+        AgregarAlquiler aa = new AgregarAlquiler();
+        this.add(aa);
+        aa.setVisible(true);
+    }//GEN-LAST:event_a_agregarActionPerformed
+
+    private void a_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_borrarActionPerformed
+        // TODO add your handling code here:
+        BorrarAlquiler aa = new BorrarAlquiler();
+        this.add(aa);
+        aa.setVisible(true);
+    }//GEN-LAST:event_a_borrarActionPerformed
+
+    private void a_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_actualizarActionPerformed
+        // TODO add your handling code here:
+        ActualizarAlquiler aa = new ActualizarAlquiler();
+        this.add(aa);
+        aa.setVisible(true);
+    }//GEN-LAST:event_a_actualizarActionPerformed
 
     private FormularioCliente c;
         

@@ -45,56 +45,83 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        t_telefono.setBackground(new java.awt.Color(0, 51, 102));
+        t_telefono.setForeground(new java.awt.Color(255, 255, 255));
+        t_telefono.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         t_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_telefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 216, 100, -1));
+        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 110, -1));
 
+        l_nombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        l_nombre.setForeground(new java.awt.Color(255, 255, 255));
         l_nombre.setText("Nombre:");
-        getContentPane().add(l_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 86, -1, -1));
+        getContentPane().add(l_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
-        l_dni.setText("DNI");
-        getContentPane().add(l_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 160, -1, -1));
+        l_dni.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        l_dni.setForeground(new java.awt.Color(255, 255, 255));
+        l_dni.setText("DNI:");
+        getContentPane().add(l_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
+        bt_guardar.setBackground(new java.awt.Color(0, 51, 102));
+        bt_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        bt_guardar.setForeground(new java.awt.Color(255, 255, 255));
         bt_guardar.setText("Guardar");
+        bt_guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bt_guardar.setName("bt_guardar"); // NOI18N
         bt_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
+        getContentPane().add(bt_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 70, 30));
 
+        l_telefono.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        l_telefono.setForeground(new java.awt.Color(255, 255, 255));
         l_telefono.setText("Telefono:");
-        getContentPane().add(l_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 218, -1, -1));
+        getContentPane().add(l_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Personas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 0, 100, 46));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 100, 46));
 
+        t_nombre.setBackground(new java.awt.Color(0, 51, 102));
+        t_nombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        t_nombre.setForeground(new java.awt.Color(255, 255, 255));
+        t_nombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         t_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nombreActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 84, 100, -1));
+        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 110, 20));
 
+        t_dni.setBackground(new java.awt.Color(0, 51, 102));
+        t_dni.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        t_dni.setForeground(new java.awt.Color(255, 255, 255));
+        t_dni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         t_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_dniActionPerformed(evt);
             }
         });
-        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 158, 100, -1));
+        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, -1));
 
+        b_salir2.setBackground(new java.awt.Color(0, 51, 102));
+        b_salir2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        b_salir2.setForeground(new java.awt.Color(255, 255, 255));
         b_salir2.setText("Salir");
+        b_salir2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         b_salir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_salir2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_salir2ActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+        getContentPane().add(b_salir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 70, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 370, 370));

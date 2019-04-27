@@ -59,10 +59,10 @@ public class Inmueble_data {
     {
         try
         {
-            String sql = "DELETE FROM inmueble WHERE id = ?;";
+            String sql = "DELETE FROM inmueble WHERE direccion = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
             
-            statement.setInt(1, inmueble1.getId());
+            statement.setString(1, inmueble1.getDireccion());
             
             statement.executeUpdate();
             
@@ -74,11 +74,11 @@ public class Inmueble_data {
         }        
     }
     
-    public void actualizarInmueble(Inmueble inmueble1, String direccion, int cantAmbientes, int costo, int disponibilidad, int id)
+    public void actualizarInmueble(Inmueble inmueble1, String direccion, int cantAmbientes, int costo, int disponibilidad, String direcciona)
     {
         try
         {
-        String sql = "UPDATE inmueble SET direccion = ?, cantAmbientes = ?, costo = ?, disponibilidad = ? WHERE id = ?;";
+        String sql = "UPDATE inmueble SET direccion = ?, cantAmbientes = ?, costo = ?, disponibilidad = ? WHERE direccion = ?;";
         
         PreparedStatement ps = connection.prepareStatement(sql);
         
@@ -86,7 +86,7 @@ public class Inmueble_data {
         ps.setInt(2, cantAmbientes);
         ps.setInt(3, costo);
         ps.setInt(4, disponibilidad);
-        ps.setInt(5, id);
+        ps.setString(5, direcciona);
         
         ps.executeUpdate();
       }

@@ -60,6 +60,10 @@ public class persona {
     public void setCelular(int celular) {
         this.celular = celular;
     }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
     
     
     

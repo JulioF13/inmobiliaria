@@ -4,20 +4,19 @@
  * and open the template in the editor.
  */
 package Vistas;
-import static java.lang.Integer.parseInt;
-import java.sql.Connection;
+
 import proyecto.xd.*;
-import java.sql.*;
+
 /**
  *
  * @author julit
  */
-public class BorrarCliente extends javax.swing.JInternalFrame {
+public class BorrarInmueble extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form BorrarCliente
+     * Creates new form BorrarInmueble
      */
-    public BorrarCliente() {
+    public BorrarInmueble() {
         initComponents();
     }
 
@@ -30,19 +29,14 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         b_borrar = new javax.swing.JButton();
-        l_borrar = new javax.swing.JLabel();
         p_borrar = new javax.swing.JTextField();
+        l_borrar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Personas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 100, 46));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 102));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -54,7 +48,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -66,12 +60,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 70, 30));
-
-        l_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        l_borrar.setForeground(new java.awt.Color(255, 255, 255));
-        l_borrar.setText("Ingresa documento:");
-        getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 128, 40));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 30));
 
         p_borrar.setBackground(new java.awt.Color(0, 51, 102));
         p_borrar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -84,8 +73,18 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         });
         getContentPane().add(p_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 155, -1));
 
+        l_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        l_borrar.setForeground(new java.awt.Color(255, 255, 255));
+        l_borrar.setText("Ingrese dirección:");
+        getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 128, 40));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Inmuebles");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 110, 46));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 356, 310));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,14 +95,14 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
 
     private void b_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_borrarActionPerformed
         // TODO add your handling code here:
-        persona p = new persona();
-        p.setDni(parseInt(p_borrar.getText()));
-        
+        Inmueble i = new Inmueble();
+        i.setDireccion(p_borrar.getText());
+
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
-        persona_data personadata = new persona_data(cn);
-        personadata.borrarPersona(p);
+            Inmueble_data inmueble = new Inmueble_data(cn);
+            inmueble.borrarInmueble(i);
         }
         catch(Exception ex)
         {
