@@ -5,6 +5,11 @@
  */
 package Vistas;
 
+import java.util.ArrayList;
+import java.util.List;
+import proyecto.xd.*;
+import javax.swing.table.*;
+
 /**
  *
  * @author julit
@@ -14,8 +19,40 @@ public class ListadoClientes extends javax.swing.JInternalFrame {
     /**
      * Creates new form ListadoClientes
      */
+    
+    private DefaultTableModel modelo;
+    
+    
     public ListadoClientes() {
+        List<persona> personas = new ArrayList<persona>();
         initComponents();
+       
+        modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0);
+        
+        try
+        {
+        Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+        persona_data personadata = new persona_data(cn);
+        personas = personadata.obtenerPersonas();
+        Object[] fila = new Object[modelo.getColumnCount()];
+         for(int i = 0; i < personas.size(); i++)
+         {
+             fila[0] = personas.get(i).getId();
+             fila[1] = personas.get(i).getNombre();
+             fila[2] = personas.get(i).getDni();
+             fila[3] = personas.get(i).getCelular();
+             
+             System.out.println(personas.get(i).getNombre());
+             System.out.println(personas.get(i).getDni());
+             modelo.addRow(fila);
+         }
+         
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
     }
 
     /**
@@ -27,33 +64,57 @@ public class ListadoClientes extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
-        jScrollPane1.setViewportView(jTable1);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        tabla.setBackground(new java.awt.Color(0, 51, 102));
+        tabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tabla.setForeground(new java.awt.Color(255, 255, 255));
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id", "Nombre", "DNI", "Celular"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabla.setRowHeight(30);
+        jScrollPane2.setViewportView(tabla);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 520, 150));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
+

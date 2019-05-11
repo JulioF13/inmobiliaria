@@ -5,6 +5,9 @@
  */
 package proyecto.xd;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import proyecto.xd.*;
 /**
  *
  * @author julit
@@ -95,4 +98,36 @@ public class Inmueble_data {
             System.out.println("Error al actualizar inmueble: " + ex.getMessage());
         }
     }
+    
+    public List<Inmueble> obtenerInmuebles()
+    {
+        List<Inmueble> inmuebles = new ArrayList<Inmueble>();
+        
+        try
+        {
+            String sql = "SELECT * FROM inmueble;";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Inmueble inmueble1;
+            
+            while(rs.next())
+            {
+                inmueble1 = new Inmueble();
+                inmueble1.setId(rs.getInt("id"));
+                inmueble1.setDireccion(rs.getString("direccion"));
+                inmueble1.setCantAmbientes(rs.getInt("cantAmbientes"));
+                inmueble1.setCosto(rs.getInt("costo"));
+                inmueble1.setDisponibilidad(rs.getInt("disponibilidad"));
+                
+                inmuebles.add(inmueble1);
+            }
+            ps.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Error al listar inmuebles: " + e.getMessage());
+        }
+        return inmuebles;
+    }
 }
+

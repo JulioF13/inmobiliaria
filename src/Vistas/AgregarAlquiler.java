@@ -5,6 +5,16 @@
  */
 package Vistas;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import proyecto.xd.Conexion;
+import proyecto.xd.persona;
+import proyecto.xd.persona_data;
+
 /**
  *
  * @author julit
@@ -14,9 +24,17 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
     /**
      * Creates new form AgregarAlquiler
      */
+    
+    String filtro = "Nombre";
+    
+    
+    private DefaultTableModel modelo;
+    
     public AgregarAlquiler() {
         initComponents();
+           
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,10 +54,15 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_inicio = new javax.swing.JTextField();
         l_inicio = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        t_personaa = new javax.swing.JTextField();
+        t_persona = new javax.swing.JTextField();
         l_personaa = new javax.swing.JLabel();
-        b_buscari = new javax.swing.JButton();
-        b_buscarp = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        busqueda = new javax.swing.JTextField();
+        combo = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        b_guardar = new javax.swing.JButton();
+        botoon1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,12 +75,12 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_inmuebleaActionPerformed(evt);
             }
         });
-        getContentPane().add(t_inmueblea, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 110, -1));
+        getContentPane().add(t_inmueblea, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 110, -1));
 
         l_inmueblea.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_inmueblea.setForeground(new java.awt.Color(255, 255, 255));
         l_inmueblea.setText("Inmueble que alquila:");
-        getContentPane().add(l_inmueblea, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
+        getContentPane().add(l_inmueblea, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
         t_costo.setBackground(new java.awt.Color(0, 51, 102));
         t_costo.setForeground(new java.awt.Color(255, 255, 255));
@@ -67,12 +90,12 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_costoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 110, -1));
+        getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 110, -1));
 
         l_costo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_costo.setForeground(new java.awt.Color(255, 255, 255));
         l_costo.setText("Costo:");
-        getContentPane().add(l_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+        getContentPane().add(l_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
         t_fin.setBackground(new java.awt.Color(0, 51, 102));
         t_fin.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -83,12 +106,12 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_finActionPerformed(evt);
             }
         });
-        getContentPane().add(t_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 110, -1));
+        getContentPane().add(t_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 110, -1));
 
         l_fin.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_fin.setForeground(new java.awt.Color(255, 255, 255));
         l_fin.setText("Fecha de fin:");
-        getContentPane().add(l_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        getContentPane().add(l_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         t_inicio.setBackground(new java.awt.Color(0, 51, 102));
         t_inicio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -99,55 +122,102 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_inicioActionPerformed(evt);
             }
         });
-        getContentPane().add(t_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 110, 20));
+        getContentPane().add(t_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, 20));
 
         l_inicio.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_inicio.setForeground(new java.awt.Color(255, 255, 255));
         l_inicio.setText("Fecha de inicio:");
-        getContentPane().add(l_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+        getContentPane().add(l_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Alquileres");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 110, 46));
+        jLabel2.setText("Busquedas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, 46));
 
-        t_personaa.setBackground(new java.awt.Color(0, 51, 102));
-        t_personaa.setForeground(new java.awt.Color(255, 255, 255));
-        t_personaa.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        t_personaa.addActionListener(new java.awt.event.ActionListener() {
+        t_persona.setBackground(new java.awt.Color(0, 51, 102));
+        t_persona.setForeground(new java.awt.Color(255, 255, 255));
+        t_persona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_persona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_personaaActionPerformed(evt);
+                t_personaActionPerformed(evt);
             }
         });
-        getContentPane().add(t_personaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 110, -1));
+        getContentPane().add(t_persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 110, -1));
 
         l_personaa.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_personaa.setForeground(new java.awt.Color(255, 255, 255));
         l_personaa.setText("Persona que alquila:");
-        getContentPane().add(l_personaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        getContentPane().add(l_personaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
 
-        b_buscari.setBackground(new java.awt.Color(0, 51, 102));
-        b_buscari.setText("Buscar...");
-        b_buscari.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        b_buscari.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Alquileres");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 110, 46));
+        getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 110, -1));
+
+        combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "D.N.I" }));
+        combo.setToolTipText("Seleccionar");
+        combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_buscariActionPerformed(evt);
+                comboActionPerformed(evt);
             }
         });
-        getContentPane().add(b_buscari, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 80, 20));
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, 20));
 
-        b_buscarp.setBackground(new java.awt.Color(0, 51, 102));
-        b_buscarp.setText("Buscar...");
-        b_buscarp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        b_buscarp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_buscarpActionPerformed(evt);
+        tabla.setBackground(new java.awt.Color(0, 51, 102));
+        tabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tabla.setForeground(new java.awt.Color(255, 255, 255));
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id", "Nombre", "DNI", "Celular"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        getContentPane().add(b_buscarp, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 80, 20));
+        tabla.setRowHeight(30);
+        jScrollPane2.setViewportView(tabla);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 520, 150));
+
+        b_guardar.setText("Guardar");
+        b_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_guardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 590, -1, -1));
+
+        botoon1.setText("jButton1");
+        botoon1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botoon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoon1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botoon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,24 +238,75 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_inmuebleaActionPerformed
 
-    private void t_personaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_personaaActionPerformed
+    private void t_personaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_personaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_personaaActionPerformed
+    }//GEN-LAST:event_t_personaActionPerformed
 
-    private void b_buscariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscariActionPerformed
+    private void b_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_guardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_b_buscariActionPerformed
+   
+    }//GEN-LAST:event_b_guardarActionPerformed
 
-    private void b_buscarpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscarpActionPerformed
+    private void botoon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoon1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_b_buscarpActionPerformed
+        try
+        {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+            persona p = new persona();
+            persona_data personadata = new persona_data(cn);
+            //personadata.obtenerPersonasPorFiltro(filtro, busqueda.getText());
+            
+            List<persona> per = personadata.obtenerPersonasPorFiltro(filtro, busqueda.getText());
+            
+            modelo = (DefaultTableModel) tabla.getModel();
+            modelo.setRowCount(0);
+            Object[] fila = new Object[modelo.getColumnCount()];
 
+            for (int i = 0; i < per.size(); i++) {
+                fila[0] = per.get(i).getId();
+                fila[1] = per.get(i).getNombre().toUpperCase();
+                fila[2] = per.get(i).getDni();
+                fila[3] = per.get(i).getCelular();
+                
+                modelo.addRow(fila);
+            }
+            
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+
+    }//GEN-LAST:event_botoon1ActionPerformed
+
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+        // TODO add your handling code here:
+        if (combo.getSelectedItem() == "Nombre")
+         {
+             filtro = "Nombre";
+        }
+        if (combo.getSelectedItem() == "D.N.I")
+             {
+                 filtro = "DNI";
+        }
+        
+    }//GEN-LAST:event_comboActionPerformed
+
+    
+    public void cargarTabla(){
+        
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b_buscari;
-    private javax.swing.JButton b_buscarp;
+    private javax.swing.JButton b_guardar;
+    private javax.swing.JButton botoon1;
+    private javax.swing.JTextField busqueda;
+    private javax.swing.JComboBox<String> combo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel l_costo;
     private javax.swing.JLabel l_fin;
     private javax.swing.JLabel l_inicio;
@@ -195,6 +316,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
     private javax.swing.JTextField t_fin;
     private javax.swing.JTextField t_inicio;
     private javax.swing.JTextField t_inmueblea;
-    private javax.swing.JTextField t_personaa;
+    private javax.swing.JTextField t_persona;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

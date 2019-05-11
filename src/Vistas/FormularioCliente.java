@@ -20,6 +20,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
      */
     public FormularioCliente() {
         initComponents();
+        
     }
 
     /**
@@ -70,6 +71,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         bt_guardar.setForeground(new java.awt.Color(255, 255, 255));
         bt_guardar.setText("Guardar");
         bt_guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bt_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_guardar.setName("bt_guardar"); // NOI18N
         bt_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -58,23 +58,29 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         b_buscarp.setForeground(new java.awt.Color(255, 255, 255));
         b_buscarp.setText("Buscar...");
         b_buscarp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_buscarp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_buscarp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_buscarpActionPerformed(evt);
             }
         });
-        getContentPane().add(b_buscarp, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 80, 20));
+        getContentPane().add(b_buscarp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 80, 20));
 
         t_nnombre.setBackground(new java.awt.Color(0, 51, 102));
         t_nnombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nnombre.setForeground(new java.awt.Color(255, 255, 255));
         t_nnombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(t_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 170, -1));
+        t_nnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t_nnombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(t_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 110, -1));
 
         l_nnombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nnombre.setForeground(new java.awt.Color(255, 255, 255));
         l_nnombre.setText("Nuevo nombre:");
-        getContentPane().add(l_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        getContentPane().add(l_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
 
         t_ninmueble.setBackground(new java.awt.Color(0, 51, 102));
         t_ninmueble.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -85,7 +91,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninmuebleActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, 170, -1));
+        getContentPane().add(t_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 110, 20));
 
         t_nombrea.setBackground(new java.awt.Color(0, 51, 102));
         t_nombrea.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -96,19 +102,20 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_nombreaActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 170, -1));
+        getContentPane().add(t_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 110, -1));
 
         b_guardar.setBackground(new java.awt.Color(0, 51, 102));
         b_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         b_guardar.setForeground(new java.awt.Color(255, 255, 255));
         b_guardar.setText("Guardar");
         b_guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 710, 70, 30));
+        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 610, 70, 30));
 
         t_nfin.setBackground(new java.awt.Color(0, 51, 102));
         t_nfin.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -119,29 +126,30 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_nfinActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nfin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 170, -1));
+        getContentPane().add(t_nfin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, -1));
 
         l_ncosto1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
         l_ncosto1.setText("Nueva fecha de fin:");
-        getContentPane().add(l_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        getContentPane().add(l_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
         b_salir.setBackground(new java.awt.Color(0, 51, 102));
         b_salir.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         b_salir.setForeground(new java.awt.Color(255, 255, 255));
         b_salir.setText("Salir");
         b_salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 710, 70, 30));
+        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 70, 30));
 
         l_nombrea.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nombrea.setForeground(new java.awt.Color(255, 255, 255));
         l_nombrea.setText("Nombre:");
-        getContentPane().add(l_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+        getContentPane().add(l_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,7 +165,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninicioActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 170, -1));
+        getContentPane().add(t_ninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 110, -1));
 
         jScrollPane1.setWheelScrollingEnabled(false);
 
@@ -172,22 +180,22 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 190, 90));
 
         l_nambientes.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nambientes.setForeground(new java.awt.Color(255, 255, 255));
         l_nambientes.setText("Nueva fecha de inicio:");
-        getContentPane().add(l_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        getContentPane().add(l_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         l_ninmueble.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ninmueble.setForeground(new java.awt.Color(255, 255, 255));
         l_ninmueble.setText("Nuevo inmueble:");
-        getContentPane().add(l_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, -1, -1));
+        getContentPane().add(l_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
         l_ncosto2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto2.setForeground(new java.awt.Color(255, 255, 255));
         l_ncosto2.setText("Nuevo costo:");
-        getContentPane().add(l_ncosto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, -1, -1));
+        getContentPane().add(l_ncosto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         t_ncosto.setBackground(new java.awt.Color(0, 51, 102));
         t_ncosto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -198,12 +206,12 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ncostoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ncosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 170, -1));
+        getContentPane().add(t_ncosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 110, -1));
 
         l_ninquilino1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ninquilino1.setForeground(new java.awt.Color(255, 255, 255));
         l_ninquilino1.setText("Nuevo inquilino:");
-        getContentPane().add(l_ninquilino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, -1, -1));
+        getContentPane().add(l_ninquilino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
 
         t_ninquilino.setBackground(new java.awt.Color(0, 51, 102));
         t_ninquilino.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -214,22 +222,23 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninquilinoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 530, 170, -1));
+        getContentPane().add(t_ninquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 110, -1));
 
         b_buscari.setBackground(new java.awt.Color(0, 51, 102));
         b_buscari.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         b_buscari.setForeground(new java.awt.Color(255, 255, 255));
         b_buscari.setText("Buscar...");
         b_buscari.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_buscari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_buscari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_buscariActionPerformed(evt);
             }
         });
-        getContentPane().add(b_buscari, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, 80, 20));
+        getContentPane().add(b_buscari, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 80, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 740));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 570, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -287,6 +296,10 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     private void b_buscariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscariActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_buscariActionPerformed
+
+    private void t_nnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_nnombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t_nnombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

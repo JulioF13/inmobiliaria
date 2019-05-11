@@ -129,6 +129,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         b_guardar.setForeground(new java.awt.Color(255, 255, 255));
         b_guardar.setText("Guardar");
         b_guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_guardarActionPerformed(evt);
@@ -141,6 +142,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         b_salir.setForeground(new java.awt.Color(255, 255, 255));
         b_salir.setText("Salir");
         b_salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_salirActionPerformed(evt);

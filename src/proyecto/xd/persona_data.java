@@ -111,6 +111,7 @@ public class persona_data {
                 persona1 = new persona();
                 persona1.setId(rs.getInt("id"));
                 persona1.setNombre(rs.getString("nombre"));
+                persona1.setDni(rs.getInt("DNI"));
                 persona1.setCelular(rs.getInt("celular"));
                 
                 personas.add(persona1);
@@ -124,5 +125,69 @@ public class persona_data {
         }
         return personas;
     }
+  
+      public List<persona> obtenerPersonasorNombre(String nombre)
+    {
+        List<persona> personas = new ArrayList<persona>();
+        
+        try
+        {
+            String sql;
+            sql = "SELECT * FROM persona where nombre like '%"+nombre+"'";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            persona persona1;
+            
+            while(rs.next())
+            {
+                persona1 = new persona();
+                persona1.setId(rs.getInt("id"));
+                persona1.setNombre(rs.getString("nombre"));
+                persona1.setDni(rs.getInt("DNI"));
+                persona1.setCelular(rs.getInt("celular"));
+                
+                personas.add(persona1);
+            }
+            ps.close();
+           
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error al listar persona: " + ex.getMessage());
+        }
+        return personas;
+    }
+      
+      
+  public List<persona> obtenerPersonasPorFiltro(String filtro, String busqueda)
+  {
+      List<persona>personas = new ArrayList<persona>();
+      
+      try
+      {
+            String sql = "SELECT * FROM persona WHERE "+filtro+" LIKE '%"+busqueda+"%';";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            persona persona1;
+            
+            while(rs.next())
+            {
+                persona1 = new persona();
+                persona1.setId(rs.getInt("id"));
+                persona1.setNombre(rs.getString("nombre"));
+                persona1.setDni(rs.getInt("DNI"));
+                persona1.setCelular(rs.getInt("celular"));
+                
+                personas.add(persona1);
+            }
+            ps.close();  
+      }
+      catch(Exception e)
+      {
+          e.getMessage();
+      }
+      return personas;
+  }
+    
     
 }

@@ -7,6 +7,8 @@ package proyecto.xd;
 import java.sql.*;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author julit
@@ -101,4 +103,37 @@ public class Alquiler_data {
             System.out.println("Error al actualizar un inmueble: " + ex.getMessage());
         }
     }
+    
+    public List<Alquiler> obtenerAlquileres()
+    {
+        List<Alquiler> alquileres = new ArrayList<Alquiler>();
+        
+        try
+        {
+            String sql = "SELECT * FROM alquiler;";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Alquiler alquiler1;
+            
+            while(rs.next())
+            {
+                   alquiler1 = new Alquiler();
+                   alquiler1.setId(rs.getInt("id"));
+                   alquiler1.setNombre(rs.getString("Nombre"));
+                   alquiler1.setFechaInicio(rs.getDate("fechaInicio").toLocalDate());
+                   alquiler1.setFechaFin(rs.getDate("fechaFin").toLocalDate());
+                   alquiler1.setCosto(rs.getInt("costo"));
+                   alquiler1.setId_persona(rs.getInt("id_persona"));
+                   alquiler1.setId_inmueble(rs.getInt("id_inmueble"));
+
+                   alquileres.add(alquiler1);
+            }
+            ps.close();
+    }
+        catch(Exception e)
+        {
+            System.out.println("Error al listar inmuebles: " + e.getMessage());
+        }
+        return alquileres;
+}
 }

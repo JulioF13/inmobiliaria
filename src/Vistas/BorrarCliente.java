@@ -107,7 +107,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         }
         catch(Exception ex)
         {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al borrar un cliente: " + ex.getMessage());
         }
     }//GEN-LAST:event_b_borrarActionPerformed
 

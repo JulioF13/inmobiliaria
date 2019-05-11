@@ -7,6 +7,7 @@ package Vistas;
 
 import javax.swing.*;
 import java.awt.*;
+import proyecto.xd.*;
 
 /**
  *
@@ -24,6 +25,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,6 +95,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         inmuebles.add(i_actualizar);
 
         i_listar.setText("Lista De Inmuebles");
+        i_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                i_listarActionPerformed(evt);
+            }
+        });
         inmuebles.add(i_listar);
 
         jMenuBar1.add(inmuebles);
@@ -129,6 +136,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         jMenu2.add(p_actualizar);
 
         p_listar.setText("Lista de clientes");
+        p_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p_listarActionPerformed(evt);
+            }
+        });
         jMenu2.add(p_listar);
 
         jMenuBar1.add(jMenu2);
@@ -160,6 +172,11 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         alquileres.add(a_actualizar);
 
         a_listar.setText("Mostrar Alquileres");
+        a_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                a_listarActionPerformed(evt);
+            }
+        });
         alquileres.add(a_listar);
 
         jMenuBar1.add(alquileres);
@@ -277,6 +294,37 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         aa.setVisible(true);
         escritorio.moveToFront(aa);
     }//GEN-LAST:event_a_actualizarActionPerformed
+
+    private void p_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_listarActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListadoClientes lc = new ListadoClientes();
+        escritorio.add(lc);
+        lc.setVisible(true);
+        escritorio.moveToFront(lc);
+        
+    }//GEN-LAST:event_p_listarActionPerformed
+
+    private void i_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_listarActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListadoInmuebles li = new ListadoInmuebles();
+        escritorio.add(li);
+        li.setVisible(true);
+        escritorio.moveToFront(li);
+    }//GEN-LAST:event_i_listarActionPerformed
+
+    private void a_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a_listarActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListadoAlquileres la = new ListadoAlquileres();
+        escritorio.add(la);
+        la.setVisible(true);
+        escritorio.moveToFront(la);
+    }//GEN-LAST:event_a_listarActionPerformed
 
     private FormularioCliente c;
         
