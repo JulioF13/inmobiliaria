@@ -30,6 +30,8 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         b_borrar = new javax.swing.JButton();
@@ -39,10 +41,25 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jScrollPane1.setWheelScrollingEnabled(false);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(0, 51, 102));
+        jTextArea1.setColumns(13);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(4);
+        jTextArea1.setTabSize(6);
+        jTextArea1.setText("Ingrese el documento de \nla persona que desea \neliminar\n");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 170, 80));
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Personas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 100, 46));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 130, 46));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 102));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -76,7 +93,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         p_borrar.setBackground(new java.awt.Color(0, 51, 102));
         p_borrar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         p_borrar.setForeground(new java.awt.Color(255, 255, 255));
-        p_borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        p_borrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         p_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p_borrarActionPerformed(evt);
@@ -122,6 +139,8 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel l_borrar;
     private javax.swing.JTextField p_borrar;
     // End of variables declaration//GEN-END:variables

@@ -81,7 +81,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
 
         t_disponibilidad.setBackground(new java.awt.Color(0, 51, 102));
         t_disponibilidad.setForeground(new java.awt.Color(255, 255, 255));
-        t_disponibilidad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_disponibilidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_disponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_disponibilidadActionPerformed(evt);
@@ -91,7 +91,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
 
         t_costo.setBackground(new java.awt.Color(0, 51, 102));
         t_costo.setForeground(new java.awt.Color(255, 255, 255));
-        t_costo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_costo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_costo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_costoActionPerformed(evt);
@@ -107,7 +107,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         t_ambientes.setBackground(new java.awt.Color(0, 51, 102));
         t_ambientes.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ambientes.setForeground(new java.awt.Color(255, 255, 255));
-        t_ambientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ambientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_ambientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ambientesActionPerformed(evt);
@@ -123,7 +123,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         t_direccion.setBackground(new java.awt.Color(0, 51, 102));
         t_direccion.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_direccion.setForeground(new java.awt.Color(255, 255, 255));
-        t_direccion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_direccionActionPerformed(evt);
@@ -136,10 +136,10 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         l_direccion.setText("Dirección:");
         getContentPane().add(l_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Inmuebles");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 110, 46));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 150, 46));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 410, 400));

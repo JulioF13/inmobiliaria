@@ -62,7 +62,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, 70, 30));
+        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 70, 30));
 
         b_guardar.setBackground(new java.awt.Color(0, 51, 102));
         b_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -75,12 +75,12 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
                 b_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 70, 30));
+        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, 70, 30));
 
         t_ndisponibilidad.setBackground(new java.awt.Color(0, 51, 102));
         t_ndisponibilidad.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ndisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
-        t_ndisponibilidad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ndisponibilidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_ndisponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ndisponibilidadActionPerformed(evt);
@@ -96,7 +96,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         t_nambientes.setBackground(new java.awt.Color(0, 51, 102));
         t_nambientes.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nambientes.setForeground(new java.awt.Color(255, 255, 255));
-        t_nambientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_nambientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_nambientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nambientesActionPerformed(evt);
@@ -112,7 +112,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         t_ndireccion.setBackground(new java.awt.Color(0, 51, 102));
         t_ndireccion.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ndireccion.setForeground(new java.awt.Color(255, 255, 255));
-        t_ndireccion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ndireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         getContentPane().add(t_ndireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 170, -1));
 
         l_ndireccion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -123,7 +123,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         t_direcciona.setBackground(new java.awt.Color(0, 51, 102));
         t_direcciona.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_direcciona.setForeground(new java.awt.Color(255, 255, 255));
-        t_direcciona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_direcciona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_direcciona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_direccionaActionPerformed(evt);
@@ -145,16 +145,16 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(4);
         jTextArea1.setTabSize(6);
-        jTextArea1.setText(" Ingrese la direccion del   \ninmueble que deseas \nactualizar");
+        jTextArea1.setText("Ingrese la direccion del   \ninmueble que deseas \nactualizar");
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, 90));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Inmuebles");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 110, 46));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 150, 46));
 
         l_ncosto1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,7 +164,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         t_ncosto1.setBackground(new java.awt.Color(0, 51, 102));
         t_ncosto1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
-        t_ncosto1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ncosto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_ncosto1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ncosto1ActionPerformed(evt);

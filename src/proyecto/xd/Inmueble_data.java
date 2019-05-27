@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import proyecto.xd.*;
+import proyecto.xd.Inmueble;
 /**
  *
  * @author julit
@@ -126,6 +127,37 @@ public class Inmueble_data {
         catch(Exception e)
         {
             System.out.println("Error al listar inmuebles: " + e.getMessage());
+        }
+        return inmuebles;
+    }
+    
+    public List<Inmueble> obtenerInmueblesPorFiltro(String filtro, String busqueda)
+    {
+        List<Inmueble>inmuebles = new ArrayList<Inmueble>();
+        
+        try
+        {
+           String sql = "SELECT * FROM inmueble WHERE "+filtro+" LIKE '%"+busqueda+"%';";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Inmueble inmueblecito;
+            
+            while(rs.next())
+            {
+                inmueblecito = new Inmueble();
+                inmueblecito.setId(rs.getInt("id"));
+                inmueblecito.setDireccion(rs.getString("direccion"));
+                inmueblecito.setCantAmbientes(rs.getInt("cantAmbientes"));
+                inmueblecito.setCosto(rs.getInt("costo"));
+               inmueblecito.setDisponibilidad(rs.getInt("disponibilidad"));
+                
+                inmuebles.add(inmueblecito);
+            }
+            ps.close();  
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
         }
         return inmuebles;
     }

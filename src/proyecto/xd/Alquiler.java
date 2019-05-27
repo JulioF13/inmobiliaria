@@ -89,4 +89,5 @@ public class Alquiler {
         this.id_persona = id_persona;
     }
     
+    
 }

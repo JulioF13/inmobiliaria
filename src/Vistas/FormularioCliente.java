@@ -48,7 +48,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
 
         t_telefono.setBackground(new java.awt.Color(0, 51, 102));
         t_telefono.setForeground(new java.awt.Color(255, 255, 255));
-        t_telefono.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_telefonoActionPerformed(evt);
@@ -85,15 +85,17 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         l_telefono.setText("Telefono:");
         getContentPane().add(l_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Personas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 100, 46));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 140, 46));
 
         t_nombre.setBackground(new java.awt.Color(0, 51, 102));
         t_nombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nombre.setForeground(new java.awt.Color(255, 255, 255));
-        t_nombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_nombre.setToolTipText("");
+        t_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         t_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nombreActionPerformed(evt);
@@ -104,13 +106,13 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         t_dni.setBackground(new java.awt.Color(0, 51, 102));
         t_dni.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_dni.setForeground(new java.awt.Color(255, 255, 255));
-        t_dni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_dniActionPerformed(evt);
             }
         });
-        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, -1));
+        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, 20));
 
         b_salir2.setBackground(new java.awt.Color(0, 51, 102));
         b_salir2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -147,7 +149,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         }
         catch(Exception ex)
         {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al insertar una persona: " + ex.getMessage());
         }
     }//GEN-LAST:event_bt_guardarActionPerformed
 

@@ -38,17 +38,16 @@ public class ListadoInmuebles extends javax.swing.JInternalFrame {
         Object[] fila = new Object[modelo.getColumnCount()];
          for(int i = 0; i < inmuebles.size(); i++)
          {
-             fila[0] = inmuebles.get(i).getId();
-             fila[1] = inmuebles.get(i).getDireccion();
-             fila[2] = inmuebles.get(i).getCantAmbientes();
-             fila[3] = inmuebles.get(i).getCosto();
-             fila[4] = inmuebles.get(i).getDisponibilidad();
+             fila[0] = inmuebles.get(i).getDireccion();
+             fila[1] = inmuebles.get(i).getCantAmbientes();
+             fila[2] = inmuebles.get(i).getCosto();
+             fila[3] = inmuebles.get(i).getDisponibilidad();
              
              System.out.println(inmuebles.get(i).getDireccion());
              System.out.println(inmuebles.get(i).getCosto());
+             
              modelo.addRow(fila);
          }
-         
         }
         catch(Exception e)
         {
@@ -73,20 +72,20 @@ public class ListadoInmuebles extends javax.swing.JInternalFrame {
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "id", "Dirección", "Cantidad De Ambientes", "Costo", "Disponibilidad"
+                "Dirección", "Cantidad De Ambientes", "Costo", "Disponibilidad"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

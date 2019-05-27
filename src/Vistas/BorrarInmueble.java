@@ -29,15 +29,31 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         b_borrar = new javax.swing.JButton();
         p_borrar = new javax.swing.JTextField();
         l_borrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setWheelScrollingEnabled(false);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(0, 51, 102));
+        jTextArea1.setColumns(13);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setRows(4);
+        jTextArea1.setTabSize(6);
+        jTextArea1.setText("Ingrese la dirección del \ninmueble que desea \neliminar\n");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 170, 80));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 102));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -49,7 +65,7 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -61,12 +77,12 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 30));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 70, 30));
 
         p_borrar.setBackground(new java.awt.Color(0, 51, 102));
         p_borrar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         p_borrar.setForeground(new java.awt.Color(255, 255, 255));
-        p_borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        p_borrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         p_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p_borrarActionPerformed(evt);
@@ -79,14 +95,10 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
         l_borrar.setText("Ingrese dirección:");
         getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 128, 40));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Inmuebles");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 110, 46));
-
-        jButton2.setText("jButton2");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 150, 46));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 310));
@@ -124,9 +136,10 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_borrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel l_borrar;
     private javax.swing.JTextField p_borrar;
     // End of variables declaration//GEN-END:variables

@@ -54,16 +54,16 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(4);
         jTextArea1.setTabSize(6);
-        jTextArea1.setText(" Ingrese el DNI de la  personaque deseas  actualizar");
+        jTextArea1.setText("Ingrese el DNI de la  persona\nque deseas  actualizar");
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 200, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 200, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Personas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 100, 46));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 140, 46));
 
         t_ndni.setBackground(new java.awt.Color(0, 51, 102));
         t_ndni.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N

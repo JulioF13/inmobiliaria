@@ -5,6 +5,10 @@
  */
 package Vistas;
 import static java.lang.Integer.parseInt;
+import java.sql.Date;
+import java.util.List;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 import proyecto.xd.*;
 /**
  *
@@ -12,11 +16,17 @@ import proyecto.xd.*;
  */
 public class ActualizarAlquiler extends javax.swing.JInternalFrame {
 
+    String filtro = "Nombre";
+    String filtro2 = "Direccion";
+    private DefaultTableModel modelo;
+    private DefaultTableModel modelo2;
     /**
      * Creates new form ActualizarAlquiler
      */
     public ActualizarAlquiler() {
         initComponents();
+        
+        
     }
 
     /**
@@ -28,7 +38,6 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        b_buscarp = new javax.swing.JButton();
         t_nnombre = new javax.swing.JTextField();
         l_nnombre = new javax.swing.JLabel();
         t_ninmueble = new javax.swing.JTextField();
@@ -48,23 +57,22 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         t_ncosto = new javax.swing.JTextField();
         l_ninquilino1 = new javax.swing.JLabel();
         t_ninquilino = new javax.swing.JTextField();
-        b_buscari = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        busquedap = new javax.swing.JTextField();
+        combop = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablap = new javax.swing.JTable();
+        botonp = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        comboi = new javax.swing.JComboBox<>();
+        combo1 = new javax.swing.JComboBox<>();
+        busquedai = new javax.swing.JTextField();
+        botoni7 = new javax.swing.JButton();
+        tablai = new javax.swing.JScrollPane();
+        i = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        b_buscarp.setBackground(new java.awt.Color(0, 51, 102));
-        b_buscarp.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        b_buscarp.setForeground(new java.awt.Color(255, 255, 255));
-        b_buscarp.setText("Buscar...");
-        b_buscarp.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        b_buscarp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        b_buscarp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_buscarpActionPerformed(evt);
-            }
-        });
-        getContentPane().add(b_buscarp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 80, 20));
 
         t_nnombre.setBackground(new java.awt.Color(0, 51, 102));
         t_nnombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -75,12 +83,12 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_nnombreActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 110, -1));
+        getContentPane().add(t_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 110, -1));
 
         l_nnombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nnombre.setForeground(new java.awt.Color(255, 255, 255));
         l_nnombre.setText("Nuevo nombre:");
-        getContentPane().add(l_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, -1, -1));
+        getContentPane().add(l_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
         t_ninmueble.setBackground(new java.awt.Color(0, 51, 102));
         t_ninmueble.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -91,7 +99,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninmuebleActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 110, 20));
+        getContentPane().add(t_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, 20));
 
         t_nombrea.setBackground(new java.awt.Color(0, 51, 102));
         t_nombrea.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -102,7 +110,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_nombreaActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 110, -1));
+        getContentPane().add(t_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 110, -1));
 
         b_guardar.setBackground(new java.awt.Color(0, 51, 102));
         b_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -115,7 +123,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 b_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 610, 70, 30));
+        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 620, 70, 30));
 
         t_nfin.setBackground(new java.awt.Color(0, 51, 102));
         t_nfin.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -126,12 +134,12 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_nfinActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nfin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 110, -1));
+        getContentPane().add(t_nfin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 110, -1));
 
         l_ncosto1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
         l_ncosto1.setText("Nueva fecha de fin:");
-        getContentPane().add(l_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
+        getContentPane().add(l_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
 
         b_salir.setBackground(new java.awt.Color(0, 51, 102));
         b_salir.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -144,17 +152,17 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 610, 70, 30));
+        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 620, 70, 30));
 
         l_nombrea.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nombrea.setForeground(new java.awt.Color(255, 255, 255));
         l_nombrea.setText("Nombre:");
-        getContentPane().add(l_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+        getContentPane().add(l_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Inmuebles");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 110, 46));
+        jLabel2.setText("Alquileres");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 110, 46));
 
         t_ninicio.setBackground(new java.awt.Color(0, 51, 102));
         t_ninicio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -165,7 +173,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninicioActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 110, -1));
+        getContentPane().add(t_ninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 110, -1));
 
         jScrollPane1.setWheelScrollingEnabled(false);
 
@@ -180,22 +188,22 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 190, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 190, 90));
 
         l_nambientes.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nambientes.setForeground(new java.awt.Color(255, 255, 255));
         l_nambientes.setText("Nueva fecha de inicio:");
-        getContentPane().add(l_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        getContentPane().add(l_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         l_ninmueble.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ninmueble.setForeground(new java.awt.Color(255, 255, 255));
         l_ninmueble.setText("Nuevo inmueble:");
-        getContentPane().add(l_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
+        getContentPane().add(l_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         l_ncosto2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto2.setForeground(new java.awt.Color(255, 255, 255));
         l_ncosto2.setText("Nuevo costo:");
-        getContentPane().add(l_ncosto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        getContentPane().add(l_ncosto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
         t_ncosto.setBackground(new java.awt.Color(0, 51, 102));
         t_ncosto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -206,12 +214,12 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ncostoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ncosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 110, -1));
+        getContentPane().add(t_ncosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 110, -1));
 
         l_ninquilino1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ninquilino1.setForeground(new java.awt.Color(255, 255, 255));
         l_ninquilino1.setText("Nuevo inquilino:");
-        getContentPane().add(l_ninquilino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+        getContentPane().add(l_ninquilino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
 
         t_ninquilino.setBackground(new java.awt.Color(0, 51, 102));
         t_ninquilino.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -222,23 +230,149 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninquilinoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 110, -1));
+        getContentPane().add(t_ninquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 110, -1));
 
-        b_buscari.setBackground(new java.awt.Color(0, 51, 102));
-        b_buscari.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        b_buscari.setForeground(new java.awt.Color(255, 255, 255));
-        b_buscari.setText("Buscar...");
-        b_buscari.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        b_buscari.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        b_buscari.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Busquedas de inmuebles");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 250, 46));
+
+        busquedap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_buscariActionPerformed(evt);
+                busquedapActionPerformed(evt);
             }
         });
-        getContentPane().add(b_buscari, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 80, 20));
+        getContentPane().add(busquedap, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 110, -1));
+
+        combop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "D.N.I" }));
+        combop.setToolTipText("Seleccionar");
+        combop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combopActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combop, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 20));
+
+        tablap.setBackground(new java.awt.Color(0, 51, 102));
+        tablap.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tablap.setForeground(new java.awt.Color(255, 255, 255));
+        tablap.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id", "Nombre", "DNI", "Celular"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablap.setRowHeight(30);
+        tablap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablapMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tablap);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 520, 150));
+
+        botonp.setText("jButton1");
+        botonp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Busquedas de personas");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 250, 46));
+
+        comboi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dirección", "Cantidad de ambientes" }));
+        comboi.setToolTipText("Seleccionar");
+        comboi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboi, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, 100, 20));
+
+        combo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "D.N.I" }));
+        combo1.setToolTipText("Seleccionar");
+        combo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 20));
+
+        busquedai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(busquedai, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 120, -1));
+
+        botoni7.setText("jButton1");
+        botoni7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoni7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botoni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, -1, 20));
+
+        i.setBackground(new java.awt.Color(0, 51, 102));
+        i.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        i.setForeground(new java.awt.Color(255, 255, 255));
+        i.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Dirección", "Cantidad Ambientes", "Costo", "Disponibilidad"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        i.setRowHeight(30);
+        i.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iMouseClicked(evt);
+            }
+        });
+        tablai.setViewportView(i);
+
+        getContentPane().add(tablai, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 540, 160));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 570, 740));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1150, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,13 +385,13 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     private void b_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_guardarActionPerformed
         // TODO add your handling code here:
 
-         Alquiler a = new Alquiler();
+         //Alquiler a = new Alquiler(t_nnombre.getText(), );
 
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Alquiler_data ad = new Alquiler_data(cn);
-            ad.actualizarAlquiler(a, t_nnombre.getText(), parseInt(t_ninicio.getText()), parseInt(t_nfin.getText()), parseInt(t_ncosto.getText()), parseInt(t_ninquilino), parseInt(nalquiler.) , t_nombrea.getText());
+            ad.actualizarAlquiler(a);
         }
         catch(Exception ex)
         {
@@ -289,27 +423,139 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_ninquilinoActionPerformed
 
-    private void b_buscarpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscarpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_buscarpActionPerformed
-
-    private void b_buscariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_buscariActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_buscariActionPerformed
-
     private void t_nnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_nnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_t_nnombreActionPerformed
 
+    private void combopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combopActionPerformed
+        // TODO add your handling code here:
+        if (combop.getSelectedItem() == "Nombre")
+        {
+            filtro = "nombre";
+        }
+        if (combop.getSelectedItem() == "D.N.I")
+        {
+            filtro = "DNI";
+        }
+
+    }//GEN-LAST:event_combopActionPerformed
+
+    private void botonpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonpActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+            persona p = new persona();
+            persona_data personadata = new persona_data(cn);
+            //personadata.obtenerPersonasPorFiltro(filtro, busqueda.getText());
+
+            List<persona> per = personadata.obtenerPersonasPorFiltro(filtro, busquedap.getText());
+
+            modelo = (DefaultTableModel) tablap.getModel();
+            modelo.setRowCount(0);
+            Object[] fila = new Object[modelo.getColumnCount()];
+
+            for (int i = 0; i < per.size(); i++) {
+                fila[0] = per.get(i).getId();
+                fila[1] = per.get(i).getNombre().toUpperCase();
+                fila[2] = per.get(i).getDni();
+                fila[3] = per.get(i).getCelular();
+
+                modelo.addRow(fila);
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+    }//GEN-LAST:event_botonpActionPerformed
+
+    private void tablapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapMouseClicked
+        // TODO add your handling code here:
+        int seleccion = tablap.rowAtPoint(evt.getPoint());
+        t_ninquilino.setText(String.valueOf(tablap.getValueAt(seleccion, 0)));
+    }//GEN-LAST:event_tablapMouseClicked
+
+    private void combo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo1ActionPerformed
+
+    private void busquedaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busquedaiActionPerformed
+
+    private void botoni7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoni7ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+            Inmueble_data inmuebledata = new Inmueble_data(cn);
+            //personadata.obtenerPersonasPorFiltro(filtro, busqueda.getText());
+
+            List<Inmueble> inm = inmuebledata.obtenerInmueblesPorFiltro(filtro2, busquedai.getText());
+
+            modelo2 = (DefaultTableModel) i.getModel();
+            modelo2.setRowCount(0);
+            Object[] fila = new Object[modelo2.getColumnCount()];
+
+            for (int i = 0; i < inm.size(); i++) {
+                fila[0] = inm.get(i).getId();
+                fila[1] = inm.get(i).getDireccion();
+                fila[2] = inm.get(i).getCantAmbientes();
+                fila[3] = inm.get(i).getCosto();
+                fila[4] = inm.get(i).getDisponibilidad();
+
+                modelo2.addRow(fila);
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+    }//GEN-LAST:event_botoni7ActionPerformed
+
+    private void comboiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboiActionPerformed
+        // TODO add your handling code here:
+        if (comboi.getSelectedItem() == "Dirección")
+        {
+            filtro2 = "direccion";
+        }
+        if (comboi.getSelectedItem() == "Cantidad de ambientes")
+        {
+            filtro2 = "cantAmbientes";
+        }
+    }//GEN-LAST:event_comboiActionPerformed
+
+    private void busquedapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busquedapActionPerformed
+
+    private void iMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iMouseClicked
+        // TODO add your handling code here:
+        int seleccion = i.rowAtPoint(evt.getPoint());
+        t_ninmueble.setText(String.valueOf(i.getValueAt(seleccion, 0)));
+    }//GEN-LAST:event_iMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b_buscari;
-    private javax.swing.JButton b_buscarp;
     private javax.swing.JButton b_guardar;
     private javax.swing.JButton b_salir;
+    private javax.swing.JButton botoni7;
+    private javax.swing.JButton botonp;
+    private javax.swing.JTextField busquedai;
+    private javax.swing.JTextField busquedap;
+    private javax.swing.JComboBox<String> combo1;
+    private javax.swing.JComboBox<String> comboi;
+    private javax.swing.JComboBox<String> combop;
+    private javax.swing.JTable i;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel l_nambientes;
     private javax.swing.JLabel l_ncosto1;
@@ -325,5 +571,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     private javax.swing.JTextField t_ninquilino;
     private javax.swing.JTextField t_nnombre;
     private javax.swing.JTextField t_nombrea;
+    private javax.swing.JScrollPane tablai;
+    private javax.swing.JTable tablap;
     // End of variables declaration//GEN-END:variables
 }

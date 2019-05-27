@@ -80,27 +80,26 @@ public class Alquiler_data {
         }
     }
     
-    public void actualizarAlquiler(Alquiler alquiler1, String Nombre, LocalDate fechaInicio, LocalDate fechaFin, int costo, int id_persona, int id_inmueble, String Nombrea)
+    public void actualizarAlquiler(Alquiler alquiler1)
     {
         try
         {
-            String sql = "UPDATE alquiler SET Nombre = ?, fechaInicio = ?, fechaFin = ?, costo = ?, id_inmueble = ?, id_persona = ? WHERE Nombre = ?;";
+            String sql = "UPDATE alquiler SET Nombre = ?, fechaInicio = ?, fechaFin = ?, costo = ?, id_inmueble = ?, id_persona = ? WHERE id = ?;";
             PreparedStatement ps = connection.prepareStatement(sql);
             
-            ps.setString(1, Nombre);
-            ps.setDate(2, Date.valueOf(fechaInicio));
-            ps.setDate(3, Date.valueOf(fechaFin));
-            ps.setInt(4, costo);
-            ps.setLong(5, id_persona);
-            ps.setLong(6, id_inmueble);
-            ps.setString(7, Nombrea);
+            ps.setString(1, alquiler1.getNombre());
+            ps.setDate(2, Date.valueOf(alquiler1.getFechaInicio()));
+            ps.setDate(3, Date.valueOf(alquiler1.getFechaFin()));
+            ps.setInt(4, alquiler1.getCosto());
+            ps.setLong(5, alquiler1.getId_persona());
+            ps.setLong(6, alquiler1.getId_inmueble());
                     
             ps.executeUpdate();       
                     
         }
         catch(Exception ex)
         {
-            System.out.println("Error al actualizar un inmueble: " + ex.getMessage());
+            System.out.println("Error al actualizar un alquiler: " + ex.getMessage());
         }
     }
     
@@ -136,4 +135,37 @@ public class Alquiler_data {
         }
         return alquileres;
 }
+    
+    public List<Alquiler> obtenerAlquileresPorFiltro(String filtro, String busqueda)
+    {
+        List<Alquiler>alquileres = new ArrayList<Alquiler>();
+        
+        try
+        {
+           String sql = "SELECT * FROM alquiler WHERE "+filtro+" LIKE '%"+busqueda+"%';";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Alquiler alquilercito;
+            
+            while(rs.next())
+            {
+                alquilercito = new Alquiler();
+                alquilercito.setId(rs.getInt("id"));
+                alquilercito.setNombre(rs.getString("Nombre"));
+                alquilercito.setFechaInicio(rs.getDate("fechaInicio").toLocalDate());
+                alquilercito.setFechaFin(rs.getDate("fechaFin").toLocalDate());
+                alquilercito.setCosto(rs.getInt("costo"));
+                alquilercito.setId_inmueble(rs.getLong("id_inmueble"));
+                alquilercito.setId_persona(rs.getLong("id_persona"));
+                
+                alquileres.add(alquilercito);
+            }
+            ps.close();  
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+        return alquileres;
+    }
 }

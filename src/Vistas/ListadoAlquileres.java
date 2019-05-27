@@ -38,13 +38,10 @@ public class ListadoAlquileres extends javax.swing.JInternalFrame {
         Object[] fila = new Object[modelo.getColumnCount()];
          for(int i = 0; i < alquileres.size(); i++)
          {
-             fila[0] = alquileres.get(i).getId();
-             fila[1] = alquileres.get(i).getNombre();
-             fila[2] = alquileres.get(i).getFechaInicio();
-             fila[3] = alquileres.get(i).getFechaFin();
-             fila[4] = alquileres.get(i).getCosto();
-             fila[5] = alquileres.get(i).getId_inmueble();
-             fila[6] = alquileres.get(i).getId_persona();
+             fila[0] = alquileres.get(i).getNombre();
+             fila[1] = alquileres.get(i).getFechaInicio();
+             fila[2] = alquileres.get(i).getFechaFin();
+             fila[3] = alquileres.get(i).getCosto();
              
              System.out.println(alquileres.get(i).getNombre());
              modelo.addRow(fila);
@@ -77,20 +74,20 @@ public class ListadoAlquileres extends javax.swing.JInternalFrame {
         tabla.setForeground(new java.awt.Color(255, 255, 255));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "id", "Nombre", "Fecha De Inicio", "Fecha De Fin", "Costo", "Id Del Inmueble", "Id De La Persona"
+                "Nombre", "Fecha De Inicio", "Fecha De Fin", "Costo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,10 +101,10 @@ public class ListadoAlquileres extends javax.swing.JInternalFrame {
         tabla.setRowHeight(30);
         jScrollPane1.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 640, 150));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 640, 150));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 650, 390));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 740, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
