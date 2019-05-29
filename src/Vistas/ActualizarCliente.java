@@ -172,13 +172,13 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         
-        persona p = new persona();
+        persona personas = new persona();
         
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
         persona_data personadata = new persona_data(cn);
-        personadata.actualizarPersona(p, t_nnombre.getText(), parseInt(t_ndni.getText()), parseInt(t_ntelefono.getText()), parseInt(t_dnia.getText()));
+        personadata.actualizarPersona(personas, t_nnombre.getText(), parseInt(t_ndni.getText()), parseInt(t_ntelefono.getText()), parseInt(t_dnia.getText()));
         }
         catch(Exception ex)
         {

@@ -197,13 +197,13 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
     private void b_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_guardarActionPerformed
         // TODO add your handling code here:
 
-         Inmueble i = new Inmueble();
+         Inmueble inmuebles = new Inmueble();
 
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Inmueble_data inmueble = new Inmueble_data(cn);
-            inmueble.actualizarInmueble(i, t_ndireccion.getText(), parseInt(t_nambientes.getText()), parseInt(t_ncosto1.getText()), parseInt(t_ndisponibilidad.getText()), t_direcciona.getText());
+            inmueble.actualizarInmueble(inmuebles, t_ndireccion.getText(), parseInt(t_nambientes.getText()), parseInt(t_ncosto1.getText()), parseInt(t_ndisponibilidad.getText()), t_direcciona.getText());
         }
         catch(Exception ex)
         {

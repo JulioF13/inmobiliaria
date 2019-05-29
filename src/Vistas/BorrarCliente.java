@@ -113,14 +113,14 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
 
     private void b_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_borrarActionPerformed
         // TODO add your handling code here:
-        persona p = new persona();
-        p.setDni(parseInt(p_borrar.getText()));
+        persona personas = new persona();
+        personas.setDni(parseInt(p_borrar.getText()));
         
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
         persona_data personadata = new persona_data(cn);
-        personadata.borrarPersona(p);
+        personadata.borrarPersona(personas);
         }
         catch(Exception ex)
         {

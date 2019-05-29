@@ -139,17 +139,17 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
 
     private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
         // TODO add your handling code here:
-        persona p = new persona(t_nombre.getText(),parseInt(t_dni.getText()), parseInt(t_telefono.getText()));
+        persona personas = new persona(t_nombre.getText(),parseInt(t_dni.getText()), parseInt(t_telefono.getText()));
         //crear coneccion en variable conn
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
         persona_data personadata = new persona_data(cn);
-        personadata.insertarPersona(p);
+        personadata.insertarPersona(personas);
         }
         catch(Exception ex)
         {
-            System.out.println("Error al insertar una persona: " + ex.getMessage());
+            System.out.println("Error al insertar un cliente: " + ex.getMessage());
         }
     }//GEN-LAST:event_bt_guardarActionPerformed
 

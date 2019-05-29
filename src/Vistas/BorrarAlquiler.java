@@ -67,7 +67,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         busqueda.setBackground(new java.awt.Color(0, 51, 102));
         busqueda.setForeground(new java.awt.Color(255, 255, 255));
         busqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
-        getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 110, -1));
+        getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 110, 20));
 
         combo.setBackground(new java.awt.Color(0, 51, 102));
         combo.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,7 +127,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -139,8 +139,11 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 70, 30));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 70, 30));
 
+        tabla.setBackground(new java.awt.Color(0, 51, 102));
+        tabla.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        tabla.setForeground(new java.awt.Color(255, 255, 255));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -152,7 +155,10 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
                 "Nombre", "Fecha De Inicio", "Fecha De Fin", "Costo"
             }
         ));
+        tabla.setGridColor(new java.awt.Color(0, 0, 0));
         tabla.setRowHeight(30);
+        tabla.setSelectionBackground(new java.awt.Color(0, 0, 51));
+        tabla.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaMouseClicked(evt);
@@ -179,14 +185,14 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
 
     private void b_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_borrarActionPerformed
         // TODO add your handling code here:
-        Alquiler p = new Alquiler();
-        p.setNombre(t_texto.getText());
+        Alquiler alquiler = new Alquiler();
+        alquiler.setNombre(t_texto.getText());
 
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Alquiler_data alquilerdata = new Alquiler_data(cn);
-            alquilerdata.borrarAlquiler(p);
+            alquilerdata.borrarAlquiler(alquiler);
         }
         catch(Exception ex)
         {
@@ -212,7 +218,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
-            Alquiler a = new Alquiler();
+            Alquiler alquile4 = new Alquiler();
             Alquiler_data alquilerdata = new Alquiler_data(cn);
 
             List<Alquiler> alq = alquilerdata.obtenerAlquileresPorFiltro(filtro, busqueda.getText());

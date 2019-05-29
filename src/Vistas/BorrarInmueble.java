@@ -112,18 +112,18 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
 
     private void b_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_borrarActionPerformed
         // TODO add your handling code here:
-        Inmueble i = new Inmueble();
-        i.setDireccion(p_borrar.getText());
+        Inmueble inmuebles = new Inmueble();
+        inmuebles.setDireccion(p_borrar.getText());
 
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Inmueble_data inmueble = new Inmueble_data(cn);
-            inmueble.borrarInmueble(i);
+            inmueble.borrarInmueble(inmuebles);
         }
         catch(Exception ex)
         {
-            System.out.println("Error al insertar un alumno: " + ex.getMessage());
+            System.out.println("Error al insertar un inmueble: " + ex.getMessage());
         }
     }//GEN-LAST:event_b_borrarActionPerformed
 

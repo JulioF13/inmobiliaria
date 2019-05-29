@@ -165,13 +165,13 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
 
     private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
         // TODO add your handling code here:
-        Inmueble i = new Inmueble(t_direccion.getText(),parseInt(t_ambientes.getText()),parseInt(t_costo.getText()) ,parseInt(t_disponibilidad.getText()));
+        Inmueble inmuebles = new Inmueble(t_direccion.getText(),parseInt(t_ambientes.getText()),parseInt(t_costo.getText()) ,parseInt(t_disponibilidad.getText()));
         //crear coneccion en variable conn
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Inmueble_data inmueble = new Inmueble_data(cn);
-            inmueble.insertarInmueble(i);
+            inmueble.insertarInmueble(inmuebles);
         }
         catch(Exception ex)
         {
