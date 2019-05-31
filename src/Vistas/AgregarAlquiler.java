@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyecto.xd.Alquiler;
 import proyecto.xd.Alquiler_data;
@@ -109,6 +110,11 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_costoActionPerformed(evt);
             }
         });
+        t_costo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_costoKeyTyped(evt);
+            }
+        });
         getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 110, 20));
 
         l_costo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -161,12 +167,17 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_personaActionPerformed(evt);
             }
         });
+        t_persona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_personaKeyTyped(evt);
+            }
+        });
         getContentPane().add(t_persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 110, 20));
 
         l_personaa.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_personaa.setForeground(new java.awt.Color(255, 255, 255));
         l_personaa.setText("Persona que alquila:");
-        getContentPane().add(l_personaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+        getContentPane().add(l_personaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 120, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,6 +193,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         combo.setForeground(new java.awt.Color(255, 255, 255));
         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "D.N.I" }));
         combo.setToolTipText("Seleccionar");
+        combo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboActionPerformed(evt);
@@ -274,6 +286,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         comboi.setForeground(new java.awt.Color(255, 255, 255));
         comboi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dirección", "Cantidad de ambientes" }));
         comboi.setToolTipText("Seleccionar");
+        comboi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboiActionPerformed(evt);
@@ -286,6 +299,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         botoni7.setForeground(new java.awt.Color(255, 255, 255));
         botoni7.setText("Buscar");
         botoni7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botoni7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botoni7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoni7ActionPerformed(evt);
@@ -330,6 +344,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -348,6 +363,11 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_inmueble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_inmuebleActionPerformed(evt);
+            }
+        });
+        t_inmueble.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_inmuebleKeyTyped(evt);
             }
         });
         getContentPane().add(t_inmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 110, 20));
@@ -381,7 +401,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
     private void b_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_guardarActionPerformed
         // TODO add your handling code here:
   
-    Alquiler a = new Alquiler(t_nombre.getText(),LocalDate.parse(t_inicio.getText()),LocalDate.parse(t_fin.getText()) ,parseInt(t_costo.getText()), parseLong(t_persona.getText()), parseLong(t_inmueble.getText()));
+    Alquiler a = new Alquiler(t_nombre.getText(),LocalDate.parse(t_inicio.getText()),LocalDate.parse(t_fin.getText()) ,parseInt(t_costo.getText()), parseLong(t_inmueble.getText()), parseLong(t_persona.getText()));
         
     try
         {
@@ -393,6 +413,9 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         {
             System.out.println("Error al insertar un alquiler: " + ex.getMessage());
         }
+    
+        String mensaje = "¡Alquiler añadido con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
         
     }//GEN-LAST:event_b_guardarActionPerformed
 
@@ -508,6 +531,27 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
     private void t_inmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_inmuebleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_t_inmuebleActionPerformed
+
+    private void t_costoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_costoKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_costoKeyTyped
+
+    private void t_personaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_personaKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_personaKeyTyped
+
+    private void t_inmuebleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_inmuebleKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_inmuebleKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

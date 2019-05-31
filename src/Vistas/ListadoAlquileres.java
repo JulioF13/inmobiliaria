@@ -71,6 +71,7 @@ public class ListadoAlquileres extends javax.swing.JInternalFrame {
 
         tabla.setBackground(new java.awt.Color(2, 51, 102));
         tabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tabla.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         tabla.setForeground(new java.awt.Color(255, 255, 255));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,6 +99,8 @@ public class ListadoAlquileres extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tabla.setGridColor(new java.awt.Color(255, 255, 255));
         tabla.setRowHeight(30);
         jScrollPane1.setViewportView(tabla);
 

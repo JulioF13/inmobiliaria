@@ -8,12 +8,17 @@ import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import proyecto.xd.*;
 import java.sql.*;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author julit
  */
 public class BorrarCliente extends javax.swing.JInternalFrame {
 
+    String filtro = "Nombre";
+     private DefaultTableModel modelo;
     /**
      * Creates new form BorrarCliente
      */
@@ -30,6 +35,12 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        botoon1 = new javax.swing.JButton();
+        busqueda = new javax.swing.JTextField();
+        combo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
@@ -40,6 +51,84 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabla.setBackground(new java.awt.Color(0, 51, 102));
+        tabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tabla.setForeground(new java.awt.Color(255, 255, 255));
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nombre", "DNI", "Celular"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tabla.setGridColor(new java.awt.Color(255, 255, 255));
+        tabla.setRowHeight(30);
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabla);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 520, 150));
+
+        botoon1.setBackground(new java.awt.Color(0, 51, 102));
+        botoon1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botoon1.setForeground(new java.awt.Color(255, 255, 255));
+        botoon1.setText("Buscar");
+        botoon1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botoon1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botoon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoon1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botoon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 70, 20));
+
+        busqueda.setBackground(new java.awt.Color(0, 51, 102));
+        busqueda.setForeground(new java.awt.Color(255, 255, 255));
+        busqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busqueda.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 150, 20));
+
+        combo.setBackground(new java.awt.Color(0, 51, 102));
+        combo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        combo.setForeground(new java.awt.Color(255, 255, 255));
+        combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "D.N.I" }));
+        combo.setToolTipText("Seleccionar");
+        combo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 100, 20));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Busquedas de personas");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 250, 46));
 
         jScrollPane1.setWheelScrollingEnabled(false);
 
@@ -54,55 +143,63 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 170, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 170, 80));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Personas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 130, 46));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 130, 46));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 102));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         b_borrar.setForeground(new java.awt.Color(255, 255, 255));
         b_borrar.setText("Borrar");
         b_borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_borrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 70, 30));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 70, 30));
 
         l_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_borrar.setForeground(new java.awt.Color(255, 255, 255));
         l_borrar.setText("Ingresa documento:");
-        getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 128, 40));
+        getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 128, 40));
 
         p_borrar.setBackground(new java.awt.Color(0, 51, 102));
         p_borrar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         p_borrar.setForeground(new java.awt.Color(255, 255, 255));
         p_borrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        p_borrar.setCaretColor(new java.awt.Color(255, 255, 255));
         p_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(p_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 155, -1));
+        p_borrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                p_borrarKeyTyped(evt);
+            }
+        });
+        getContentPane().add(p_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 155, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 356, 310));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,6 +223,9 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         {
             System.out.println("Error al borrar un cliente: " + ex.getMessage());
         }
+        
+        String mensaje = "¡Cliente borrado con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_b_borrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -133,15 +233,77 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
+        // TODO add your handling code here:
+        if (combo.getSelectedItem() == "Nombre")
+        {
+            filtro = "Nombre";
+        }
+        if (combo.getSelectedItem() == "D.N.I")
+        {
+            filtro = "DNI";
+        }
+
+    }//GEN-LAST:event_comboActionPerformed
+
+    private void botoon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoon1ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+            persona p = new persona();
+            persona_data personadata = new persona_data(cn);
+            //personadata.obtenerPersonasPorFiltro(filtro, busqueda.getText());
+
+            List<persona> per = personadata.obtenerPersonasPorFiltro(filtro, busqueda.getText());
+
+            modelo = (DefaultTableModel) tabla.getModel();
+            modelo.setRowCount(0);
+            Object[] fila = new Object[modelo.getColumnCount()];
+
+            for (int i = 0; i < per.size(); i++) {
+                fila[0] = per.get(i).getNombre().toUpperCase();
+                fila[1] = per.get(i).getDni();
+                fila[2] = per.get(i).getCelular();
+
+                modelo.addRow(fila);
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+    }//GEN-LAST:event_botoon1ActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        // TODO add your handling code here:
+        int seleccion = tabla.rowAtPoint(evt.getPoint());
+        p_borrar.setText(String.valueOf(tabla.getValueAt(seleccion, 1)));
+    }//GEN-LAST:event_tablaMouseClicked
+
+    private void p_borrarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_p_borrarKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_p_borrarKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_borrar;
+    private javax.swing.JButton botoon1;
+    private javax.swing.JTextField busqueda;
+    private javax.swing.JComboBox<String> combo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel l_borrar;
     private javax.swing.JTextField p_borrar;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

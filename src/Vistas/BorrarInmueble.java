@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import proyecto.xd.*;
 
 /**
@@ -13,6 +16,10 @@ import proyecto.xd.*;
  */
 public class BorrarInmueble extends javax.swing.JInternalFrame {
 
+    String filtro2 = "Direccion";
+    
+    
+    private DefaultTableModel modelo2;
     /**
      * Creates new form BorrarInmueble
      */
@@ -29,6 +36,10 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tablai = new javax.swing.JScrollPane();
+        i = new javax.swing.JTable();
+        comboi = new javax.swing.JComboBox<>();
+        busquedai = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
@@ -36,9 +47,67 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
         p_borrar = new javax.swing.JTextField();
         l_borrar = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        botoni7 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        i.setBackground(new java.awt.Color(0, 51, 102));
+        i.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        i.setForeground(new java.awt.Color(255, 255, 255));
+        i.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Dirección", "Cantidad Ambientes", "Costo", "Disponibilidad"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        i.setGridColor(new java.awt.Color(255, 255, 255));
+        i.setRowHeight(30);
+        i.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iMouseClicked(evt);
+            }
+        });
+        tablai.setViewportView(i);
+
+        getContentPane().add(tablai, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 540, 160));
+
+        comboi.setBackground(new java.awt.Color(0, 51, 102));
+        comboi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        comboi.setForeground(new java.awt.Color(255, 255, 255));
+        comboi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dirección", "Cantidad de ambientes" }));
+        comboi.setToolTipText("Seleccionar");
+        comboi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comboi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 100, 20));
+
+        busquedai.setBackground(new java.awt.Color(0, 51, 102));
+        busquedai.setForeground(new java.awt.Color(255, 255, 255));
+        busquedai.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busquedai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(busquedai, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, 20));
 
         jScrollPane1.setWheelScrollingEnabled(false);
 
@@ -53,55 +122,76 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 170, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 170, 80));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 102));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 500, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         b_borrar.setForeground(new java.awt.Color(255, 255, 255));
         b_borrar.setText("Borrar");
         b_borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_borrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 70, 30));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 70, 30));
 
         p_borrar.setBackground(new java.awt.Color(0, 51, 102));
         p_borrar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         p_borrar.setForeground(new java.awt.Color(255, 255, 255));
         p_borrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        p_borrar.setCaretColor(new java.awt.Color(255, 255, 255));
         p_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(p_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 155, -1));
+        getContentPane().add(p_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 155, -1));
 
         l_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_borrar.setForeground(new java.awt.Color(255, 255, 255));
         l_borrar.setText("Ingrese dirección:");
-        getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 128, 40));
+        getContentPane().add(l_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 128, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Inmuebles");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 150, 46));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 150, 46));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Busquedas de inmuebles");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 250, 46));
+
+        botoni7.setBackground(new java.awt.Color(0, 51, 102));
+        botoni7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botoni7.setForeground(new java.awt.Color(255, 255, 255));
+        botoni7.setText("Buscar");
+        botoni7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botoni7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botoni7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoni7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botoni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 70, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 310));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,6 +215,9 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
         {
             System.out.println("Error al insertar un inmueble: " + ex.getMessage());
         }
+        
+        String mensaje = "¡Inmueble borrado con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_b_borrarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -132,15 +225,72 @@ public class BorrarInmueble extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void comboiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboiActionPerformed
+        // TODO add your handling code here:
+        if (comboi.getSelectedItem() == "Dirección")
+        {
+            filtro2 = "direccion";
+        }
+        if (comboi.getSelectedItem() == "Cantidad de ambientes")
+        {
+            filtro2 = "cantAmbientes";
+        }
+    }//GEN-LAST:event_comboiActionPerformed
+
+    private void busquedaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busquedaiActionPerformed
+
+    private void botoni7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoni7ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+            Inmueble_data inmuebledata = new Inmueble_data(cn);
+
+            List<Inmueble> inm = inmuebledata.obtenerInmueblesPorFiltro(filtro2, busquedai.getText());
+
+            modelo2 = (DefaultTableModel) i.getModel();
+            modelo2.setRowCount(0);
+            Object[] fila = new Object[modelo2.getColumnCount()];
+
+            for (int i = 0; i < inm.size(); i++) {
+                fila[0] = inm.get(i).getDireccion();
+                fila[1] = inm.get(i).getCantAmbientes();
+                fila[2] = inm.get(i).getCosto();
+                fila[3] = inm.get(i).getDisponibilidad();
+
+                modelo2.addRow(fila);
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+    }//GEN-LAST:event_botoni7ActionPerformed
+
+    private void iMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iMouseClicked
+        // TODO add your handling code here:
+        int seleccion = i.rowAtPoint(evt.getPoint());
+        p_borrar.setText(String.valueOf(i.getValueAt(seleccion, 0)));
+    }//GEN-LAST:event_iMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_borrar;
+    private javax.swing.JButton botoni7;
+    private javax.swing.JTextField busquedai;
+    private javax.swing.JComboBox<String> comboi;
+    private javax.swing.JTable i;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel l_borrar;
     private javax.swing.JTextField p_borrar;
+    private javax.swing.JScrollPane tablai;
     // End of variables declaration//GEN-END:variables
 }

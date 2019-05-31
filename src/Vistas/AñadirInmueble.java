@@ -6,6 +6,7 @@
 package Vistas;
 
 import static java.lang.Integer.parseInt;
+import javax.swing.JOptionPane;
 import proyecto.xd.Conexion;
 import proyecto.xd.Inmueble;
 import proyecto.xd.Inmueble_data;
@@ -42,6 +43,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         l_ambientes = new javax.swing.JLabel();
         t_direccion = new javax.swing.JTextField();
         l_direccion = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -82,22 +84,34 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         t_disponibilidad.setBackground(new java.awt.Color(0, 51, 102));
         t_disponibilidad.setForeground(new java.awt.Color(255, 255, 255));
         t_disponibilidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_disponibilidad.setCaretColor(new java.awt.Color(255, 255, 255));
         t_disponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_disponibilidadActionPerformed(evt);
             }
         });
-        getContentPane().add(t_disponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 110, -1));
+        t_disponibilidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_disponibilidadKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_disponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 110, 20));
 
         t_costo.setBackground(new java.awt.Color(0, 51, 102));
         t_costo.setForeground(new java.awt.Color(255, 255, 255));
         t_costo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_costo.setCaretColor(new java.awt.Color(255, 255, 255));
         t_costo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_costoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 110, -1));
+        t_costo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_costoKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 110, 20));
 
         l_costo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_costo.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,12 +122,18 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         t_ambientes.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ambientes.setForeground(new java.awt.Color(255, 255, 255));
         t_ambientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_ambientes.setCaretColor(new java.awt.Color(255, 255, 255));
         t_ambientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ambientesActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 110, -1));
+        t_ambientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_ambientesKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_ambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 110, 20));
 
         l_ambientes.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ambientes.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,6 +144,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         t_direccion.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_direccion.setForeground(new java.awt.Color(255, 255, 255));
         t_direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_direccion.setCaretColor(new java.awt.Color(255, 255, 255));
         t_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_direccionActionPerformed(evt);
@@ -135,6 +156,11 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         l_direccion.setForeground(new java.awt.Color(255, 255, 255));
         l_direccion.setText("Dirección:");
         getContentPane().add(l_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(0, 51, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("1 Es Disponible y 0 No disponible");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 160, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,6 +203,9 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         {
             System.out.println("Error al insertar un alumno: " + ex.getMessage());
         }
+        
+        String mensaje = "¡Inmueble añadido con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_bt_guardarActionPerformed
 
     private void b_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_salirActionPerformed
@@ -184,12 +213,34 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_b_salirActionPerformed
 
+    private void t_ambientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_ambientesKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_ambientesKeyTyped
+
+    private void t_costoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_costoKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_costoKeyTyped
+
+    private void t_disponibilidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_disponibilidadKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '1') evt.consume();
+    }//GEN-LAST:event_t_disponibilidadKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_salir;
     private javax.swing.JButton bt_guardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel l_ambientes;
     private javax.swing.JLabel l_costo;
     private javax.swing.JLabel l_direccion;

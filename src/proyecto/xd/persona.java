@@ -12,8 +12,8 @@ package proyecto.xd;
 public class persona {
     private int id = -1;
     private String nombre;
-    private int dni;
-    private int celular;
+    private long dni;
+    private long celular;
     
     public persona()
     {
@@ -41,11 +41,11 @@ public class persona {
         return nombre;
     }
 
-    public int getDni() {
+    public long getDni() {
         return dni;
     }
 
-    public int getCelular() {
+    public long getCelular() {
         return celular;
     }
 

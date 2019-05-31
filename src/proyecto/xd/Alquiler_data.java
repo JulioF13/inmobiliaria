@@ -66,10 +66,10 @@ public class Alquiler_data {
     {
         try
         {
-            String sql = "DELETE FROM alquiler WHERE Nombre = ?";
+            String sql = "DELETE FROM alquiler WHERE id = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             
-            ps.setString(1, alquiler1.getNombre());
+            ps.setInt(1, alquiler1.getId());
             
             ps.executeUpdate();
             
@@ -93,6 +93,7 @@ public class Alquiler_data {
             ps.setInt(4, alquiler1.getCosto());
             ps.setLong(5, alquiler1.getId_persona());
             ps.setLong(6, alquiler1.getId_inmueble());
+            ps.setInt(7, alquiler1.getId());
                     
             ps.executeUpdate();       
                     

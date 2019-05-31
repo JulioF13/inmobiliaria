@@ -99,6 +99,7 @@ public class ListadoClientes extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla.setGridColor(new java.awt.Color(255, 255, 255));
         tabla.setRowHeight(30);
         jScrollPane2.setViewportView(tabla);
 

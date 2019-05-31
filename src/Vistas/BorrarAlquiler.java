@@ -5,7 +5,9 @@
  */
 package Vistas;
 
+import static java.lang.Integer.parseInt;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import proyecto.xd.Alquiler;
 import proyecto.xd.Alquiler_data;
@@ -67,6 +69,8 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         busqueda.setBackground(new java.awt.Color(0, 51, 102));
         busqueda.setForeground(new java.awt.Color(255, 255, 255));
         busqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busqueda.setCaretColor(new java.awt.Color(255, 255, 255));
+        busqueda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 110, 20));
 
         combo.setBackground(new java.awt.Color(0, 51, 102));
@@ -74,6 +78,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "Costo" }));
         combo.setToolTipText("Seleccionar");
         combo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        combo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboActionPerformed(evt);
@@ -95,24 +100,33 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(4);
         jTextArea1.setTabSize(6);
-        jTextArea1.setText(" Ingrese el nombre del   \nalquiler que desea borrar.");
+        jTextArea1.setText(" Seleccione el alquiler\n que desea borrar.");
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 190, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 170, 80));
 
         l_inicio.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_inicio.setForeground(new java.awt.Color(255, 255, 255));
-        l_inicio.setText("Ingrese el nombre:");
+        l_inicio.setText("Ingrese el alquiler:");
         getContentPane().add(l_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
         t_texto.setBackground(new java.awt.Color(0, 51, 102));
         t_texto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_texto.setForeground(new java.awt.Color(255, 255, 255));
         t_texto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_texto.setCaretColor(new java.awt.Color(255, 255, 255));
+        t_texto.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        t_texto.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        t_texto.setSelectionColor(new java.awt.Color(255, 255, 255));
         t_texto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_textoActionPerformed(evt);
+            }
+        });
+        t_texto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_textoKeyTyped(evt);
             }
         });
         getContentPane().add(t_texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 170, 20));
@@ -122,42 +136,45 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         b_borrar.setForeground(new java.awt.Color(255, 255, 255));
         b_borrar.setText("Borrar");
         b_borrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        b_borrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         b_borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 70, 30));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 70, 30));
 
         tabla.setBackground(new java.awt.Color(0, 51, 102));
+        tabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabla.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tabla.setForeground(new java.awt.Color(255, 255, 255));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Fecha De Inicio", "Fecha De Fin", "Costo"
+                "id", "Nombre", "Fecha De Inicio", "Fecha De Fin", "Costo"
             }
         ));
-        tabla.setGridColor(new java.awt.Color(0, 0, 0));
+        tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tabla.setGridColor(new java.awt.Color(255, 255, 255));
         tabla.setRowHeight(30);
-        tabla.setSelectionBackground(new java.awt.Color(0, 0, 51));
         tabla.setSelectionForeground(new java.awt.Color(255, 255, 255));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -166,7 +183,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tabla);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 480, 150));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 480, 150));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 740));
@@ -186,7 +203,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
     private void b_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_borrarActionPerformed
         // TODO add your handling code here:
         Alquiler alquiler = new Alquiler();
-        alquiler.setNombre(t_texto.getText());
+        alquiler.setId(parseInt(t_texto.getText()));
 
         try
         {
@@ -198,6 +215,9 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         {
             System.out.println("Error al borrar un cliente: " + ex.getMessage());
         }
+        
+        String mensaje = "¡Alquiler borrado con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_b_borrarActionPerformed
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboActionPerformed
@@ -228,10 +248,11 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
             Object[] fila = new Object[modelo.getColumnCount()];
 
             for (int i = 0; i < alq.size(); i++) {
-                fila[0] = alq.get(i).getNombre().toUpperCase();
-                fila[1] = alq.get(i).getFechaInicio();
-                fila[2] = alq.get(i).getFechaFin();
-                fila[3] = alq.get(i).getCosto();
+                fila[0] = alq.get(i).getId();
+                fila[1] = alq.get(i).getNombre().toUpperCase();
+                fila[2] = alq.get(i).getFechaInicio();
+                fila[3] = alq.get(i).getFechaFin();
+                fila[4] = alq.get(i).getCosto();
 
                 modelo.addRow(fila);
             }
@@ -248,6 +269,13 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         int seleccion = tabla.rowAtPoint(evt.getPoint());
         t_texto.setText(String.valueOf(tabla.getValueAt(seleccion, 0)));
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void t_textoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_textoKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_textoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

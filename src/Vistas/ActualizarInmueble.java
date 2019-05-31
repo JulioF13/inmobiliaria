@@ -6,6 +6,9 @@
 package Vistas;
 
 import static java.lang.Integer.parseInt;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import proyecto.xd.Conexion;
 import proyecto.xd.Inmueble;
 import proyecto.xd.Inmueble_data;
@@ -16,11 +19,16 @@ import proyecto.xd.Inmueble_data;
  */
 public class ActualizarInmueble extends javax.swing.JInternalFrame {
 
+    String filtro2 = "Direccion";
+    
+    
+    private DefaultTableModel modelo2;
     /**
      * Creates new form ActualizarInmueble
      */
     public ActualizarInmueble() {
         initComponents();
+        
     }
 
     /**
@@ -32,9 +40,14 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        grupo = new javax.swing.ButtonGroup();
+        tablai = new javax.swing.JScrollPane();
+        i = new javax.swing.JTable();
+        comboi = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         b_salir = new javax.swing.JButton();
         b_guardar = new javax.swing.JButton();
-        t_ndisponibilidad = new javax.swing.JTextField();
         l_ndisponibilidad = new javax.swing.JLabel();
         t_nambientes = new javax.swing.JTextField();
         l_nambientes = new javax.swing.JLabel();
@@ -46,10 +59,65 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         l_ncosto1 = new javax.swing.JLabel();
-        t_ncosto1 = new javax.swing.JTextField();
+        t_disponibilidad = new javax.swing.JTextField();
+        busquedai = new javax.swing.JTextField();
+        botoni7 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        t_ncosto2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        i.setBackground(new java.awt.Color(0, 51, 102));
+        i.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        i.setForeground(new java.awt.Color(255, 255, 255));
+        i.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Dirección", "Cantidad Ambientes", "Costo", "Disponibilidad"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        i.setGridColor(new java.awt.Color(255, 255, 255));
+        i.setRowHeight(30);
+        i.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iMouseClicked(evt);
+            }
+        });
+        tablai.setViewportView(i);
+
+        getContentPane().add(tablai, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 540, 160));
+
+        comboi.setBackground(new java.awt.Color(0, 51, 102));
+        comboi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        comboi.setForeground(new java.awt.Color(255, 255, 255));
+        comboi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dirección", "Cantidad de ambientes" }));
+        comboi.setToolTipText("Seleccionar");
+        comboi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comboi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 100, 20));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Busquedas de inmuebles");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 250, 46));
 
         b_salir.setBackground(new java.awt.Color(0, 51, 102));
         b_salir.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -62,7 +130,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 70, 30));
+        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, 70, 30));
 
         b_guardar.setBackground(new java.awt.Color(0, 51, 102));
         b_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -75,66 +143,63 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
                 b_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, 70, 30));
-
-        t_ndisponibilidad.setBackground(new java.awt.Color(0, 51, 102));
-        t_ndisponibilidad.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        t_ndisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
-        t_ndisponibilidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
-        t_ndisponibilidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_ndisponibilidadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(t_ndisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 170, -1));
+        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, 70, 30));
 
         l_ndisponibilidad.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ndisponibilidad.setForeground(new java.awt.Color(255, 255, 255));
         l_ndisponibilidad.setText("Nueva disponibilidad:");
-        getContentPane().add(l_ndisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+        getContentPane().add(l_ndisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, -1, -1));
 
         t_nambientes.setBackground(new java.awt.Color(0, 51, 102));
         t_nambientes.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nambientes.setForeground(new java.awt.Color(255, 255, 255));
         t_nambientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nambientes.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nambientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nambientesActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 170, -1));
+        t_nambientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_nambientesKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
 
         l_nambientes.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nambientes.setForeground(new java.awt.Color(255, 255, 255));
         l_nambientes.setText("Nueva Cant.Ambientes:");
-        getContentPane().add(l_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
+        getContentPane().add(l_nambientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         t_ndireccion.setBackground(new java.awt.Color(0, 51, 102));
         t_ndireccion.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ndireccion.setForeground(new java.awt.Color(255, 255, 255));
         t_ndireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
-        getContentPane().add(t_ndireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 170, -1));
+        t_ndireccion.setCaretColor(new java.awt.Color(255, 255, 255));
+        getContentPane().add(t_ndireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 150, -1));
 
         l_ndireccion.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ndireccion.setForeground(new java.awt.Color(255, 255, 255));
         l_ndireccion.setText("Nueva dirección:");
-        getContentPane().add(l_ndireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+        getContentPane().add(l_ndireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         t_direcciona.setBackground(new java.awt.Color(0, 51, 102));
         t_direcciona.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_direcciona.setForeground(new java.awt.Color(255, 255, 255));
         t_direcciona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_direcciona.setCaretColor(new java.awt.Color(255, 255, 255));
         t_direcciona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_direccionaActionPerformed(evt);
             }
         });
-        getContentPane().add(t_direcciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 170, -1));
+        getContentPane().add(t_direcciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 150, -1));
 
         l_direcciona.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_direcciona.setForeground(new java.awt.Color(255, 255, 255));
         l_direcciona.setText("Ingrese dirección:");
-        getContentPane().add(l_direcciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        getContentPane().add(l_direcciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         jScrollPane1.setWheelScrollingEnabled(false);
 
@@ -149,31 +214,82 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 190, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 190, 90));
 
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Inmuebles");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 150, 46));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 150, 46));
 
         l_ncosto1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
         l_ncosto1.setText("Nuevo costo:");
-        getContentPane().add(l_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
+        getContentPane().add(l_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
 
-        t_ncosto1.setBackground(new java.awt.Color(0, 51, 102));
-        t_ncosto1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        t_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
-        t_ncosto1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
-        t_ncosto1.addActionListener(new java.awt.event.ActionListener() {
+        t_disponibilidad.setBackground(new java.awt.Color(0, 51, 102));
+        t_disponibilidad.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        t_disponibilidad.setForeground(new java.awt.Color(255, 255, 255));
+        t_disponibilidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_disponibilidad.setCaretColor(new java.awt.Color(255, 255, 255));
+        t_disponibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_ncosto1ActionPerformed(evt);
+                t_disponibilidadActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ncosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 170, -1));
+        t_disponibilidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_disponibilidadKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_disponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 150, -1));
+
+        busquedai.setBackground(new java.awt.Color(0, 51, 102));
+        busquedai.setForeground(new java.awt.Color(255, 255, 255));
+        busquedai.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busquedai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busquedaiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(busquedai, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 140, 20));
+
+        botoni7.setBackground(new java.awt.Color(0, 51, 102));
+        botoni7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botoni7.setForeground(new java.awt.Color(255, 255, 255));
+        botoni7.setText("Buscar");
+        botoni7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botoni7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botoni7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoni7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botoni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 70, 20));
+
+        jLabel3.setBackground(new java.awt.Color(0, 51, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("1 Es Disponible y 0 No disponible");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 160, -1));
+
+        t_ncosto2.setBackground(new java.awt.Color(0, 51, 102));
+        t_ncosto2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        t_ncosto2.setForeground(new java.awt.Color(255, 255, 255));
+        t_ncosto2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_ncosto2.setCaretColor(new java.awt.Color(255, 255, 255));
+        t_ncosto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t_ncosto2ActionPerformed(evt);
+            }
+        });
+        t_ncosto2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_ncosto2KeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_ncosto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 150, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 580));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -186,13 +302,9 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_nambientesActionPerformed
 
-    private void t_ndisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_ndisponibilidadActionPerformed
+    private void t_disponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_disponibilidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_ndisponibilidadActionPerformed
-
-    private void t_ncosto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_ncosto1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_t_ncosto1ActionPerformed
+    }//GEN-LAST:event_t_disponibilidadActionPerformed
 
     private void b_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_guardarActionPerformed
         // TODO add your handling code here:
@@ -203,13 +315,15 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Inmueble_data inmueble = new Inmueble_data(cn);
-            inmueble.actualizarInmueble(inmuebles, t_ndireccion.getText(), parseInt(t_nambientes.getText()), parseInt(t_ncosto1.getText()), parseInt(t_ndisponibilidad.getText()), t_direcciona.getText());
+            inmueble.actualizarInmueble(inmuebles, t_ndireccion.getText(), parseInt(t_nambientes.getText()), parseInt(t_disponibilidad.getText()), parseInt(t_disponibilidad.getText()), t_direcciona.getText());
         }
         catch(Exception ex)
         {
             System.out.println("Error al insertar un inmueble: " + ex.getMessage());
         }
 
+        String mensaje = "¡Inmueble actualizado con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_b_guardarActionPerformed
 
     private void b_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_salirActionPerformed
@@ -217,12 +331,100 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_b_salirActionPerformed
 
+    private void comboiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboiActionPerformed
+        // TODO add your handling code here:
+        if (comboi.getSelectedItem() == "Dirección")
+        {
+            filtro2 = "direccion";
+        }
+        if (comboi.getSelectedItem() == "Cantidad de ambientes")
+        {
+            filtro2 = "cantAmbientes";
+        }
+    }//GEN-LAST:event_comboiActionPerformed
+
+    private void busquedaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busquedaiActionPerformed
+
+    private void botoni7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoni7ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+            Inmueble_data inmuebledata = new Inmueble_data(cn);
+
+            List<Inmueble> inm = inmuebledata.obtenerInmueblesPorFiltro(filtro2, busquedai.getText());
+
+            modelo2 = (DefaultTableModel) i.getModel();
+            modelo2.setRowCount(0);
+            Object[] fila = new Object[modelo2.getColumnCount()];
+
+            for (int i = 0; i < inm.size(); i++) {
+                fila[0] = inm.get(i).getDireccion();
+                fila[1] = inm.get(i).getCantAmbientes();
+                fila[2] = inm.get(i).getCosto();
+                fila[3] = inm.get(i).getDisponibilidad();
+
+                modelo2.addRow(fila);
+            }
+
+        }
+        catch(Exception e)
+        {
+            e.getMessage();
+        }
+    }//GEN-LAST:event_botoni7ActionPerformed
+
+    private void iMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iMouseClicked
+        // TODO add your handling code here:
+        int seleccion = i.rowAtPoint(evt.getPoint());
+        t_direcciona.setText(String.valueOf(i.getValueAt(seleccion, 0)));
+        t_ndireccion.setText(String.valueOf(i.getValueAt(seleccion, 0)));
+        t_nambientes.setText(String.valueOf(i.getValueAt(seleccion, 1)));
+        t_disponibilidad.setText(String.valueOf(i.getValueAt(seleccion, 3)));
+        t_ncosto2.setText(String.valueOf(i.getValueAt(seleccion, 2)));
+    }//GEN-LAST:event_iMouseClicked
+
+    private void t_ncosto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_ncosto2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t_ncosto2ActionPerformed
+
+    private void t_nambientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_nambientesKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_nambientesKeyTyped
+
+    private void t_ncosto2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_ncosto2KeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_ncosto2KeyTyped
+
+    private void t_disponibilidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_disponibilidadKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '1') evt.consume();
+    }//GEN-LAST:event_t_disponibilidadKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_guardar;
     private javax.swing.JButton b_salir;
+    private javax.swing.JButton botoni7;
+    private javax.swing.JTextField busquedai;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> comboi;
+    private javax.swing.ButtonGroup grupo;
+    private javax.swing.JTable i;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel l_direcciona;
@@ -231,9 +433,10 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
     private javax.swing.JLabel l_ndireccion;
     private javax.swing.JLabel l_ndisponibilidad;
     private javax.swing.JTextField t_direcciona;
+    private javax.swing.JTextField t_disponibilidad;
     private javax.swing.JTextField t_nambientes;
-    private javax.swing.JTextField t_ncosto1;
+    private javax.swing.JTextField t_ncosto2;
     private javax.swing.JTextField t_ndireccion;
-    private javax.swing.JTextField t_ndisponibilidad;
+    private javax.swing.JScrollPane tablai;
     // End of variables declaration//GEN-END:variables
 }

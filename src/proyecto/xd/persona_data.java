@@ -35,8 +35,8 @@ public class persona_data {
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
         statement.setString(1, persona1.getNombre());
-        statement.setInt(2, persona1.getDni());
-        statement.setInt(3, persona1.getCelular());
+        statement.setLong(2, persona1.getDni());
+        statement.setLong(3, persona1.getCelular());
         
         statement.executeUpdate();
         
@@ -64,7 +64,7 @@ public class persona_data {
             String sql = "DELETE FROM persona WHERE DNI = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
             
-            statement.setInt(1, persona1.getDni());
+            statement.setLong(1, persona1.getDni());
             
             statement.executeUpdate();
             

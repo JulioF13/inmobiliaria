@@ -9,6 +9,7 @@ import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import proyecto.xd.*;
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author julit
@@ -49,12 +50,18 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         t_telefono.setBackground(new java.awt.Color(0, 51, 102));
         t_telefono.setForeground(new java.awt.Color(255, 255, 255));
         t_telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_telefono.setCaretColor(new java.awt.Color(255, 255, 255));
         t_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_telefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 110, -1));
+        t_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_telefonoKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 110, 20));
 
         l_nombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,10 +102,16 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         t_nombre.setForeground(new java.awt.Color(255, 255, 255));
         t_nombre.setToolTipText("");
         t_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nombre.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         t_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nombreActionPerformed(evt);
+            }
+        });
+        t_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_nombreKeyTyped(evt);
             }
         });
         getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 110, 20));
@@ -107,9 +120,15 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         t_dni.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_dni.setForeground(new java.awt.Color(255, 255, 255));
         t_dni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_dni.setCaretColor(new java.awt.Color(255, 255, 255));
         t_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_dniActionPerformed(evt);
+            }
+        });
+        t_dni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_dniKeyTyped(evt);
             }
         });
         getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, 20));
@@ -151,6 +170,9 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         {
             System.out.println("Error al insertar un cliente: " + ex.getMessage());
         }
+        
+        String mensaje = "¡Cliente añadido con exito!";
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_bt_guardarActionPerformed
 
     private void t_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_nombreActionPerformed
@@ -165,6 +187,27 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_b_salir2ActionPerformed
+
+    private void t_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_nombreKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) evt.consume();
+    }//GEN-LAST:event_t_nombreKeyTyped
+
+    private void t_dniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_dniKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_dniKeyTyped
+
+    private void t_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_telefonoKeyTyped
+        // TODO add your handling code here:
+               char c = evt.getKeyChar();
+        
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_t_telefonoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
