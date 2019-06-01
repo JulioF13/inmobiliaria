@@ -80,20 +80,20 @@ public class Alquiler_data {
         }
     }
     
-    public void actualizarAlquiler(Alquiler alquiler1)
+    public void actualizarAlquiler(Alquiler alquiler1, String Nombre, LocalDate fechaInicio, LocalDate fechaFin, int costo, int id_inmueble, int id_persona, int id)
     {
         try
         {
             String sql = "UPDATE alquiler SET Nombre = ?, fechaInicio = ?, fechaFin = ?, costo = ?, id_inmueble = ?, id_persona = ? WHERE id = ?;";
             PreparedStatement ps = connection.prepareStatement(sql);
             
-            ps.setString(1, alquiler1.getNombre());
-            ps.setDate(2, Date.valueOf(alquiler1.getFechaInicio()));
-            ps.setDate(3, Date.valueOf(alquiler1.getFechaFin()));
-            ps.setInt(4, alquiler1.getCosto());
-            ps.setLong(5, alquiler1.getId_persona());
-            ps.setLong(6, alquiler1.getId_inmueble());
-            ps.setInt(7, alquiler1.getId());
+            ps.setString(1, Nombre);
+            ps.setDate(2, Date.valueOf(fechaInicio));
+            ps.setDate(3, Date.valueOf(fechaFin));
+            ps.setInt(4, costo);
+            ps.setLong(5, id_inmueble);
+            ps.setLong(6, id_persona);
+            ps.setInt(7, id);
                     
             ps.executeUpdate();       
                     

@@ -90,6 +90,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        i.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         i.setGridColor(new java.awt.Color(255, 255, 255));
         i.setRowHeight(30);
         i.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -246,6 +247,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         busquedai.setBackground(new java.awt.Color(0, 51, 102));
         busquedai.setForeground(new java.awt.Color(255, 255, 255));
         busquedai.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busquedai.setCaretColor(new java.awt.Color(255, 255, 255));
         busquedai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busquedaiActionPerformed(evt);
@@ -267,9 +269,10 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         getContentPane().add(botoni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 70, 20));
 
         jLabel3.setBackground(new java.awt.Color(0, 51, 102));
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("1 Es Disponible y 0 No disponible");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 160, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 200, 20));
 
         t_ncosto2.setBackground(new java.awt.Color(0, 51, 102));
         t_ncosto2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -315,7 +318,7 @@ public class ActualizarInmueble extends javax.swing.JInternalFrame {
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Inmueble_data inmueble = new Inmueble_data(cn);
-            inmueble.actualizarInmueble(inmuebles, t_ndireccion.getText(), parseInt(t_nambientes.getText()), parseInt(t_disponibilidad.getText()), parseInt(t_disponibilidad.getText()), t_direcciona.getText());
+            inmueble.actualizarInmueble(inmuebles, t_ndireccion.getText(), parseInt(t_nambientes.getText()), parseInt(t_ncosto2.getText()), parseInt(t_disponibilidad.getText()), t_direcciona.getText());
         }
         catch(Exception ex)
         {

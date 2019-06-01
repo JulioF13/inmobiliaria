@@ -23,6 +23,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Inmobiliaria");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setIconImage(new ImageIcon(getClass().getResource("../imagenes/icono.png")).getImage());
         
     }
     

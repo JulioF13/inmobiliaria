@@ -43,6 +43,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        t_id = new javax.swing.JTextField();
         t_nnombre = new javax.swing.JTextField();
         l_nnombre = new javax.swing.JLabel();
         t_ninmueble = new javax.swing.JTextField();
@@ -60,8 +61,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         l_ninmueble = new javax.swing.JLabel();
         l_ncosto2 = new javax.swing.JLabel();
         t_ncosto = new javax.swing.JTextField();
-        l_ninquilino1 = new javax.swing.JLabel();
-        t_ninquilino = new javax.swing.JTextField();
+        l_id = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         busquedap = new javax.swing.JTextField();
         combop = new javax.swing.JComboBox<>();
@@ -80,30 +80,51 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         botoon1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        l_ninquilino2 = new javax.swing.JLabel();
+        t_ninquilino1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        t_id.setBackground(new java.awt.Color(0, 51, 102));
+        t_id.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        t_id.setForeground(new java.awt.Color(255, 255, 255));
+        t_id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_id.setCaretColor(new java.awt.Color(255, 255, 255));
+        t_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t_idActionPerformed(evt);
+            }
+        });
+        t_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_idKeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, 130, 20));
+
         t_nnombre.setBackground(new java.awt.Color(0, 51, 102));
         t_nnombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nnombre.setForeground(new java.awt.Color(255, 255, 255));
-        t_nnombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_nnombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nnombre.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nnombreActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 110, -1));
+        getContentPane().add(t_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 130, -1));
 
         l_nnombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nnombre.setForeground(new java.awt.Color(255, 255, 255));
         l_nnombre.setText("Nuevo nombre:");
-        getContentPane().add(l_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
+        getContentPane().add(l_nnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         t_ninmueble.setBackground(new java.awt.Color(0, 51, 102));
         t_ninmueble.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ninmueble.setForeground(new java.awt.Color(255, 255, 255));
-        t_ninmueble.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ninmueble.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_ninmueble.setCaretColor(new java.awt.Color(255, 255, 255));
         t_ninmueble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ninmuebleActionPerformed(evt);
@@ -114,18 +135,19 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ninmuebleKeyTyped(evt);
             }
         });
-        getContentPane().add(t_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 110, 20));
+        getContentPane().add(t_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 130, 20));
 
         t_nombrea.setBackground(new java.awt.Color(0, 51, 102));
         t_nombrea.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nombrea.setForeground(new java.awt.Color(255, 255, 255));
-        t_nombrea.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_nombrea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nombrea.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nombrea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nombreaActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 110, -1));
+        getContentPane().add(t_nombrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 130, -1));
 
         b_guardar.setBackground(new java.awt.Color(0, 51, 102));
         b_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -138,18 +160,19 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 b_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 620, 70, 30));
+        getContentPane().add(b_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 590, 70, 30));
 
         t_nfin.setBackground(new java.awt.Color(0, 51, 102));
         t_nfin.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nfin.setForeground(new java.awt.Color(255, 255, 255));
-        t_nfin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_nfin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nfin.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nfin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nfinActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nfin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 110, -1));
+        getContentPane().add(t_nfin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, -1));
 
         l_ncosto1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,7 +190,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 620, 70, 30));
+        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 590, 70, 30));
 
         l_nombrea.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nombrea.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,13 +205,14 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         t_ninicio.setBackground(new java.awt.Color(0, 51, 102));
         t_ninicio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ninicio.setForeground(new java.awt.Color(255, 255, 255));
-        t_ninicio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ninicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_ninicio.setCaretColor(new java.awt.Color(255, 255, 255));
         t_ninicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ninicioActionPerformed(evt);
             }
         });
-        getContentPane().add(t_ninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 110, -1));
+        getContentPane().add(t_ninicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 130, -1));
 
         jScrollPane1.setWheelScrollingEnabled(false);
 
@@ -213,7 +237,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         l_ninmueble.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ninmueble.setForeground(new java.awt.Color(255, 255, 255));
         l_ninmueble.setText("Nuevo inmueble:");
-        getContentPane().add(l_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+        getContentPane().add(l_ninmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
         l_ncosto2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_ncosto2.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,7 +247,8 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         t_ncosto.setBackground(new java.awt.Color(0, 51, 102));
         t_ncosto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ncosto.setForeground(new java.awt.Color(255, 255, 255));
-        t_ncosto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ncosto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_ncosto.setCaretColor(new java.awt.Color(255, 255, 255));
         t_ncosto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_ncostoActionPerformed(evt);
@@ -234,28 +259,11 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 t_ncostoKeyTyped(evt);
             }
         });
-        getContentPane().add(t_ncosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 110, -1));
+        getContentPane().add(t_ncosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 130, -1));
 
-        l_ninquilino1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        l_ninquilino1.setForeground(new java.awt.Color(255, 255, 255));
-        l_ninquilino1.setText("Nuevo inquilino:");
-        getContentPane().add(l_ninquilino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
-
-        t_ninquilino.setBackground(new java.awt.Color(0, 51, 102));
-        t_ninquilino.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        t_ninquilino.setForeground(new java.awt.Color(255, 255, 255));
-        t_ninquilino.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        t_ninquilino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t_ninquilinoActionPerformed(evt);
-            }
-        });
-        t_ninquilino.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                t_ninquilinoKeyTyped(evt);
-            }
-        });
-        getContentPane().add(t_ninquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 110, -1));
+        l_id.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        l_id.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(l_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,21 +273,26 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         busquedap.setBackground(new java.awt.Color(0, 51, 102));
         busquedap.setForeground(new java.awt.Color(255, 255, 255));
         busquedap.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busquedap.setCaretColor(new java.awt.Color(255, 255, 255));
         busquedap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busquedapActionPerformed(evt);
             }
         });
-        getContentPane().add(busquedap, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 110, 20));
+        getContentPane().add(busquedap, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 110, 20));
 
+        combop.setBackground(new java.awt.Color(0, 51, 102));
+        combop.setForeground(new java.awt.Color(255, 255, 255));
         combop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "D.N.I" }));
         combop.setToolTipText("Seleccionar");
+        combop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        combop.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         combop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combopActionPerformed(evt);
             }
         });
-        getContentPane().add(combop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 100, 20));
+        getContentPane().add(combop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 120, 20));
 
         tablap.setBackground(new java.awt.Color(0, 51, 102));
         tablap.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -310,6 +323,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tablap.setRowHeight(30);
         tablap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -330,15 +344,18 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 botonpActionPerformed(evt);
             }
         });
-        getContentPane().add(botonp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 70, 20));
+        getContentPane().add(botonp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 70, 20));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Busquedas de personas");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 250, 46));
 
+        comboi.setBackground(new java.awt.Color(0, 51, 102));
+        comboi.setForeground(new java.awt.Color(255, 255, 255));
         comboi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dirección", "Cantidad de ambientes" }));
         comboi.setToolTipText("Seleccionar");
+        comboi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         comboi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboiActionPerformed(evt);
@@ -346,18 +363,22 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         });
         getContentPane().add(comboi, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, 120, 20));
 
+        busquedai.setBackground(new java.awt.Color(0, 51, 102));
         busquedai.setForeground(new java.awt.Color(255, 255, 255));
+        busquedai.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busquedai.setCaretColor(new java.awt.Color(255, 255, 255));
         busquedai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busquedaiActionPerformed(evt);
             }
         });
-        getContentPane().add(busquedai, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, 120, -1));
+        getContentPane().add(busquedai, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 330, 140, -1));
 
         botoni7.setBackground(new java.awt.Color(0, 51, 102));
         botoni7.setForeground(new java.awt.Color(255, 255, 255));
         botoni7.setText("Buscar");
         botoni7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botoni7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botoni7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoni7ActionPerformed(evt);
@@ -387,6 +408,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        i.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         i.setRowHeight(30);
         i.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -401,21 +423,21 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         combo.setForeground(new java.awt.Color(255, 255, 255));
         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nombre", "Costo" }));
         combo.setToolTipText("Seleccionar");
-        combo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        combo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         combo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboActionPerformed(evt);
             }
         });
-        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 100, 20));
+        getContentPane().add(combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 130, 20));
 
         busqueda.setBackground(new java.awt.Color(0, 51, 102));
         busqueda.setForeground(new java.awt.Color(255, 255, 255));
         busqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         busqueda.setCaretColor(new java.awt.Color(255, 255, 255));
         busqueda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 70, 110, 20));
+        getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, 140, 20));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -432,7 +454,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
                 botoon1ActionPerformed(evt);
             }
         });
-        getContentPane().add(botoon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 70, 80, 20));
+        getContentPane().add(botoon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 80, 20));
 
         tabla.setBackground(new java.awt.Color(0, 51, 102));
         tabla.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -462,6 +484,28 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 100, 480, 150));
 
+        l_ninquilino2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        l_ninquilino2.setForeground(new java.awt.Color(255, 255, 255));
+        l_ninquilino2.setText("Nuevo inquilino:");
+        getContentPane().add(l_ninquilino2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+
+        t_ninquilino1.setBackground(new java.awt.Color(0, 51, 102));
+        t_ninquilino1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        t_ninquilino1.setForeground(new java.awt.Color(255, 255, 255));
+        t_ninquilino1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_ninquilino1.setCaretColor(new java.awt.Color(255, 255, 255));
+        t_ninquilino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t_ninquilino1ActionPerformed(evt);
+            }
+        });
+        t_ninquilino1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                t_ninquilino1KeyTyped(evt);
+            }
+        });
+        getContentPane().add(t_ninquilino1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 130, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1290, 900));
 
@@ -476,13 +520,13 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     private void b_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_guardarActionPerformed
         // TODO add your handling code here:
 
-         Alquiler a = new Alquiler(t_nnombre.getText(), LocalDate.parse(t_ninicio.getText()), LocalDate.parse(t_nfin.getText()), parseInt(t_ncosto.getText()), parseInt(t_ninmueble.getText()), parseInt(t_ninquilino.getText()));
+         Alquiler a = new Alquiler();
 
         try
         {
             Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
             Alquiler_data ad = new Alquiler_data(cn);
-            ad.actualizarAlquiler(a);
+            ad.actualizarAlquiler(a,t_nnombre.getText(), LocalDate.parse(t_ninicio.getText()), LocalDate.parse(t_nfin.getText()), parseInt(t_ncosto.getText()), parseInt(t_ninmueble.getText()), parseInt(t_ninquilino1.getText()),parseInt(t_id.getText()));
         }
         catch(Exception ex)
         {
@@ -513,9 +557,9 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_t_ncostoActionPerformed
 
-    private void t_ninquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_ninquilinoActionPerformed
+    private void t_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t_ninquilinoActionPerformed
+    }//GEN-LAST:event_t_idActionPerformed
 
     private void t_nnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_nnombreActionPerformed
         // TODO add your handling code here:
@@ -568,7 +612,7 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     private void tablapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablapMouseClicked
         // TODO add your handling code here:
         int seleccion = tablap.rowAtPoint(evt.getPoint());
-        t_ninquilino.setText(String.valueOf(tablap.getValueAt(seleccion, 0)));
+        t_ninquilino1.setText(String.valueOf(tablap.getValueAt(seleccion, 0)));
     }//GEN-LAST:event_tablapMouseClicked
 
     private void busquedaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaiActionPerformed
@@ -678,6 +722,8 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         t_ninicio.setText(String.valueOf(tabla.getValueAt(seleccion, 2)));
         t_nfin.setText(String.valueOf(tabla.getValueAt(seleccion, 3)));
         t_ncosto.setText(String.valueOf(tabla.getValueAt(seleccion, 4)));
+        t_id.setText(String.valueOf(tabla.getValueAt(seleccion, 0)));
+        t_nnombre.setText(String.valueOf(tabla.getValueAt(seleccion, 1)));
     }//GEN-LAST:event_tablaMouseClicked
 
     private void t_ncostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_ncostoKeyTyped
@@ -694,12 +740,20 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
         if(c < '0' || c > '9') evt.consume();
     }//GEN-LAST:event_t_ninmuebleKeyTyped
 
-    private void t_ninquilinoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_ninquilinoKeyTyped
+    private void t_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_idKeyTyped
         // TODO add your handling code here:
                char c = evt.getKeyChar();
         
         if(c < '0' || c > '9') evt.consume();
-    }//GEN-LAST:event_t_ninquilinoKeyTyped
+    }//GEN-LAST:event_t_idKeyTyped
+
+    private void t_ninquilino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t_ninquilino1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t_ninquilino1ActionPerformed
+
+    private void t_ninquilino1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_ninquilino1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t_ninquilino1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -724,18 +778,20 @@ public class ActualizarAlquiler extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel l_id;
     private javax.swing.JLabel l_nambientes;
     private javax.swing.JLabel l_ncosto1;
     private javax.swing.JLabel l_ncosto2;
     private javax.swing.JLabel l_ninmueble;
-    private javax.swing.JLabel l_ninquilino1;
+    private javax.swing.JLabel l_ninquilino2;
     private javax.swing.JLabel l_nnombre;
     private javax.swing.JLabel l_nombrea;
+    private javax.swing.JTextField t_id;
     private javax.swing.JTextField t_ncosto;
     private javax.swing.JTextField t_nfin;
     private javax.swing.JTextField t_ninicio;
     private javax.swing.JTextField t_ninmueble;
-    private javax.swing.JTextField t_ninquilino;
+    private javax.swing.JTextField t_ninquilino1;
     private javax.swing.JTextField t_nnombre;
     private javax.swing.JTextField t_nombrea;
     private javax.swing.JTable tabla;

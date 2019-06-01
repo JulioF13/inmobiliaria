@@ -157,7 +157,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         t_ndni.setBackground(new java.awt.Color(0, 51, 102));
         t_ndni.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ndni.setForeground(new java.awt.Color(255, 255, 255));
-        t_ndni.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ndni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_ndni.setCaretColor(new java.awt.Color(255, 255, 255));
         t_ndni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +179,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         t_dnia.setBackground(new java.awt.Color(0, 51, 102));
         t_dnia.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_dnia.setForeground(new java.awt.Color(255, 255, 255));
-        t_dnia.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_dnia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_dnia.setCaretColor(new java.awt.Color(255, 255, 255));
         t_dnia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,7 +201,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         t_nnombre.setBackground(new java.awt.Color(0, 51, 102));
         t_nnombre.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_nnombre.setForeground(new java.awt.Color(255, 255, 255));
-        t_nnombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_nnombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_nnombre.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nnombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -223,7 +223,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         t_ntelefono.setBackground(new java.awt.Color(0, 51, 102));
         t_ntelefono.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_ntelefono.setForeground(new java.awt.Color(255, 255, 255));
-        t_ntelefono.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_ntelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_ntelefono.setCaretColor(new java.awt.Color(255, 255, 255));
         t_ntelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,9 +383,6 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void t_nnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_nnombreKeyTyped
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        
-        if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) evt.consume();
     }//GEN-LAST:event_t_nnombreKeyTyped
 
 

@@ -12,7 +12,7 @@ package proyecto.xd;
 public class persona {
     private int id = -1;
     private String nombre;
-    private long dni;
+    private int dni;
     private long celular;
     
     public persona()
@@ -26,7 +26,7 @@ public class persona {
     
     
     
-    public persona(String nombre, int dni, int celular)
+    public persona(String nombre, int dni, long celular)
     {
         this.nombre = nombre;
         this.dni = dni;
@@ -41,7 +41,7 @@ public class persona {
         return nombre;
     }
 
-    public long getDni() {
+    public int getDni() {
         return dni;
     }
 
@@ -57,7 +57,7 @@ public class persona {
         this.nombre = nombre;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(long celular) {
         this.celular = celular;
     }
 

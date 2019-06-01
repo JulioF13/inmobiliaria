@@ -161,7 +161,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 70, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 70, 30));
 
         b_borrar.setBackground(new java.awt.Color(0, 51, 102));
         b_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -174,7 +174,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
                 b_borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 70, 30));
+        getContentPane().add(b_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 70, 30));
 
         l_borrar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_borrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,7 +199,7 @@ public class BorrarCliente extends javax.swing.JInternalFrame {
         getContentPane().add(p_borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 155, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 500));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

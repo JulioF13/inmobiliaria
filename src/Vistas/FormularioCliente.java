@@ -6,6 +6,7 @@
 package Vistas;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 import java.sql.Connection;
 import proyecto.xd.*;
 import java.sql.*;
@@ -61,7 +62,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
                 t_telefonoKeyTyped(evt);
             }
         });
-        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 110, 20));
+        getContentPane().add(t_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 140, 20));
 
         l_nombre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,7 +115,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
                 t_nombreKeyTyped(evt);
             }
         });
-        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 110, 20));
+        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 140, 20));
 
         t_dni.setBackground(new java.awt.Color(0, 51, 102));
         t_dni.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -131,7 +132,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
                 t_dniKeyTyped(evt);
             }
         });
-        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, 20));
+        getContentPane().add(t_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 140, 20));
 
         b_salir2.setBackground(new java.awt.Color(0, 51, 102));
         b_salir2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -158,11 +159,11 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
 
     private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
         // TODO add your handling code here:
-        persona personas = new persona(t_nombre.getText(),parseInt(t_dni.getText()), parseInt(t_telefono.getText()));
+        persona personas = new persona(t_nombre.getText(),parseInt(t_dni.getText()), parseLong(t_telefono.getText()));
         //crear coneccion en variable conn
         try
         {
-            Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
+        Conexion cn = new Conexion("jdbc:mysql://localhost/inmobiliaria", "root", "");
         persona_data personadata = new persona_data(cn);
         personadata.insertarPersona(personas);
         }
@@ -190,9 +191,6 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
 
     private void t_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_nombreKeyTyped
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        
-        if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) evt.consume();
     }//GEN-LAST:event_t_nombreKeyTyped
 
     private void t_dniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_dniKeyTyped
@@ -204,9 +202,7 @@ public class FormularioCliente extends javax.swing.JInternalFrame {
 
     private void t_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_t_telefonoKeyTyped
         // TODO add your handling code here:
-               char c = evt.getKeyChar();
-        
-        if(c < '0' || c > '9') evt.consume();
+
     }//GEN-LAST:event_t_telefonoKeyTyped
 
 

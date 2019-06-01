@@ -90,12 +90,13 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_nombre.setBackground(new java.awt.Color(0, 51, 102));
         t_nombre.setForeground(new java.awt.Color(255, 255, 255));
         t_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_nombre.setCaretColor(new java.awt.Color(255, 255, 255));
         t_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_nombreActionPerformed(evt);
             }
         });
-        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 110, 20));
+        getContentPane().add(t_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 120, 20));
 
         l_nomnhre.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_nomnhre.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,6 +106,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_costo.setBackground(new java.awt.Color(0, 51, 102));
         t_costo.setForeground(new java.awt.Color(255, 255, 255));
         t_costo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_costo.setCaretColor(new java.awt.Color(255, 255, 255));
         t_costo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_costoActionPerformed(evt);
@@ -115,7 +117,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_costoKeyTyped(evt);
             }
         });
-        getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 110, 20));
+        getContentPane().add(t_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 120, 20));
 
         l_costo.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_costo.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,12 +128,13 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_fin.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_fin.setForeground(new java.awt.Color(255, 255, 255));
         t_fin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_fin.setCaretColor(new java.awt.Color(255, 255, 255));
         t_fin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_finActionPerformed(evt);
             }
         });
-        getContentPane().add(t_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 110, 20));
+        getContentPane().add(t_fin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 120, 20));
 
         l_fin.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_fin.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,12 +145,13 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_inicio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_inicio.setForeground(new java.awt.Color(255, 255, 255));
         t_inicio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_inicio.setCaretColor(new java.awt.Color(255, 255, 255));
         t_inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_inicioActionPerformed(evt);
             }
         });
-        getContentPane().add(t_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, 20));
+        getContentPane().add(t_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 120, 20));
 
         l_inicio.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_inicio.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,6 +166,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_persona.setBackground(new java.awt.Color(0, 51, 102));
         t_persona.setForeground(new java.awt.Color(255, 255, 255));
         t_persona.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_persona.setCaretColor(new java.awt.Color(255, 255, 255));
         t_persona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_personaActionPerformed(evt);
@@ -172,7 +177,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_personaKeyTyped(evt);
             }
         });
-        getContentPane().add(t_persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 110, 20));
+        getContentPane().add(t_persona, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 120, 20));
 
         l_personaa.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_personaa.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,7 +190,9 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 110, 46));
 
         busqueda.setBackground(new java.awt.Color(0, 51, 102));
+        busqueda.setForeground(new java.awt.Color(255, 255, 255));
         busqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busqueda.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 110, 20));
 
         combo.setBackground(new java.awt.Color(0, 51, 102));
@@ -274,6 +281,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         busquedai.setBackground(new java.awt.Color(0, 51, 102));
         busquedai.setForeground(new java.awt.Color(255, 255, 255));
         busquedai.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        busquedai.setCaretColor(new java.awt.Color(255, 255, 255));
         busquedai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busquedaiActionPerformed(evt);
@@ -360,6 +368,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
         t_inmueble.setBackground(new java.awt.Color(0, 51, 102));
         t_inmueble.setForeground(new java.awt.Color(255, 255, 255));
         t_inmueble.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
+        t_inmueble.setCaretColor(new java.awt.Color(255, 255, 255));
         t_inmueble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t_inmuebleActionPerformed(evt);
@@ -370,7 +379,7 @@ public class AgregarAlquiler extends javax.swing.JInternalFrame {
                 t_inmuebleKeyTyped(evt);
             }
         });
-        getContentPane().add(t_inmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 110, 20));
+        getContentPane().add(t_inmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 120, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blue.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 740));

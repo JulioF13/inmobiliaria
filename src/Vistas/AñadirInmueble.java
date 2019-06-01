@@ -60,7 +60,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
                 b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 70, 30));
+        getContentPane().add(b_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 70, 30));
 
         bt_guardar.setBackground(new java.awt.Color(0, 51, 102));
         bt_guardar.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -74,7 +74,7 @@ public class AñadirInmueble extends javax.swing.JInternalFrame {
                 bt_guardarActionPerformed(evt);
             }
         });
-        getContentPane().add(bt_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 70, 30));
+        getContentPane().add(bt_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 70, 30));
 
         l_disponibilidad.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         l_disponibilidad.setForeground(new java.awt.Color(255, 255, 255));

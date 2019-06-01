@@ -114,7 +114,7 @@ public class BorrarAlquiler extends javax.swing.JInternalFrame {
         t_texto.setBackground(new java.awt.Color(0, 51, 102));
         t_texto.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         t_texto.setForeground(new java.awt.Color(255, 255, 255));
-        t_texto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        t_texto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 51)));
         t_texto.setCaretColor(new java.awt.Color(255, 255, 255));
         t_texto.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         t_texto.setSelectedTextColor(new java.awt.Color(255, 255, 255));
